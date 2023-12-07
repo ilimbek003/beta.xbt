@@ -1,0 +1,92 @@
+@font-face {
+  font-family: Gilroy;
+  src: url("./fonts/Gilroy-Thin.ttf");
+  font-weight: 100;
+}
+@font-face {
+  font-family: Gilroy;
+  src: url("./fonts/Gilroy-UltraLight.ttf");
+  font-weight: 200;
+}
+@font-face {
+  font-family: Gilroy;
+  src: url("./fonts/Gilroy-Light.ttf");
+  font-weight: 300;
+}
+@font-face {
+  font-family: Gilroy;
+  src: url("./fonts/Gilroy-Regular.ttf");
+  font-weight: 400;
+}
+@font-face {
+  font-family: Gilroy;
+  src: url("./fonts/Gilroy-Medium.ttf");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: Gilroy;
+  src: url("./fonts/Gilroy-Semibold.ttf");
+  font-weight: 600;
+}
+@font-face {
+  font-family: Gilroy;
+  src: url("./fonts/Gilroy-Bold.ttf");
+  font-weight: 700;
+}
+@font-face {
+  font-family: Gilroy;
+  src: url("./fonts/Gilroy-Extrabold.ttf");
+  font-weight: 800;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Gilroy, sans-serif;
+}
+
+*::selection {
+  background: var(--green);
+}
+
+body {
+  background: #090b12;
+}
+
+:root {
+  --green: #4ac49e;
+  --orange: #ff5c00;
+}
+
+.green {
+  background: var(--green);
+}
+.orange {
+  background: var(--orange);
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #4ac49db7;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #171822;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #4ac49de0;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: #4ac49d;
+}

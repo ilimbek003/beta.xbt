@@ -1,0 +1,57 @@
+.meet {
+  width: 100%;
+  min-height: 1180px;
+}
+.meet .container {
+  margin: 0 auto;
+  max-width: 1140px;
+  width: 90%;
+  height: 100%;
+  padding-top: 232px;
+}
+.meet .save1 {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 40% 60%;
+}
+.meet .image {
+  width: 100%;
+}
+.meet .wrapper h1 {
+  color: #fff;
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.meet .wrapper p {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+}
+.meet .save2 {
+  margin: 0 auto;
+  margin-top: 85px;
+  width: 100%;
+}
+.meet .save2 h1 {
+  color: #dddee8;
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.meet .save2 p {
+  margin-top: 10px;
+  color: #fff;
+  font-size: 19px;
+  font-weight: 400;
+}
+
+@media (max-width: 820px) {
+  .meet .save1 {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .meet .image {
+    margin-top: 30px;
+  }
+}

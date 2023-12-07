@@ -1,0 +1,121 @@
+#footer {
+  width: 100%;
+  min-height: 220px;
+  background: #07080b;
+}
+#footer .container {
+  margin: 0 auto;
+  max-width: 1140px;
+  width: 90%;
+}
+#footer .logo {
+  display: flex;
+  align-items: center;
+}
+#footer .logo h1 {
+  color: var(--green);
+  font-size: 24px;
+  font-weight: 600;
+  margin-left: 10px;
+}
+.footer_flex {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  padding: 35px 0 0 0;
+}
+.footer_flex_block h5 {
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding: 20px 0 0 0;
+}
+.footer_flex_block h4 {
+  padding: 10px 0 0 0;
+}
+.footer_flex_block h4 a {
+  color: var(--white, #fff);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-decoration: none;
+}
+.footer_new_all .page_home,
+.footer_new_all h6 {
+  color: var(--unnamed, #9e9ea5);
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 0 20px 0;
+  text-decoration: none;
+}
+.footer_new_all .page,
+.footer_new_all h4 {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0 0 10px 0;
+  text-decoration: none;
+}
+.footer_new_all_blocks h6 {
+  color: #9e9ea5;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 0 20px 0;
+}
+.footer_new_all_blocks h4 {
+  margin-bottom: 10px;
+}
+.footer_new_all_blocks h4 a {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0 0 10px 0;
+  text-decoration: none;
+}
+#footer .foot {
+  margin-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  height: 67px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#footer .foot p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  font-weight: 400;
+}
+#footer .icons img {
+  margin-left: 32px;
+}
+
+@media (max-width: 800px) {
+  .footer__all {
+    width: 100%;
+    margin-top: 30px;
+  }
+}
+@media (max-width: 700px) {
+  .footer_new_all_blocks {
+    width: 100%;
+    margin-top: 30px;
+  }
+}
+@media (max-width: 600px) {
+  .footer__all {
+    margin-top: 30px;
+  }
+  .footer_new_all_blocks {
+    width: 100%;
+    margin-top: 30px;
+  }
+  .footer_new_all {
+    width: 100px;
+  }
+  #footer .icons img {
+    margin-left: 20px;
+  }
+}

@@ -1,0 +1,31 @@
+#advantages .shadow-one {
+  background: linear-gradient(90deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+  width: 150px;
+  height: 154px;
+  flex-shrink: 0;
+  position: absolute;
+  margin-top: -20px;
+  left: -10px;
+}
+#advantages .shadow {
+  background: linear-gradient(90deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+  width: 150px;
+  height: 148px;
+  flex-shrink: 0;
+  position: absolute;
+  margin-top: -130px;
+  right: 0;
+  transform: rotate(180deg);
+}
+#advantages .advantages_h1 {
+  color: #fff;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-align: center;
+  margin: 140px 0 30px 0;
+}
+#advantages .advantages_slider {
+  margin: 30px 0 0 0;
+}

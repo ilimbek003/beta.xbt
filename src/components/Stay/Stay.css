@@ -1,0 +1,153 @@
+#stay .container {
+  width: 1040px;
+  max-width: 90%;
+  margin: 0 auto;
+}
+.skey_h1 {
+  color: #fff;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin: 100px 0 40px 0;
+}
+#stay .width {
+  width: 350px;
+}
+#stay .skey_block {
+  margin: 0 auto;
+  max-width: 320px;
+  min-height: 255px;
+  border-radius: 20px;
+  background: var(--unnamed, #171822);
+  padding: 20px;
+  z-index: -1;
+  margin-bottom: 50px;
+  transition: 0.3s ease;
+}
+#stay .skey_block:hover {
+  box-shadow: 5px 5px 15px gray;
+}
+#stay .news-photo {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px;
+}
+#stay .news-photo img {
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+  object-position: center;
+}
+#stay .skey_block h2 {
+  margin: 20px 0 0 0;
+  height: 40px;
+  color: #ffffff;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  overflow: hidden;
+}
+#stay .skey_block p {
+  color: #ffffff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  margin: 0 0 20px 0;
+  height: 64px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#stay .not_data {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#stay .not_data {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+#stay .skey_block .body {
+  width: 100%;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  margin: 20px 0 0 0;
+}
+#stay .slick-prev:before,
+#stay .slick-next:before {
+  display: none;
+}
+.slick-dots li:nth-child(1) button:before {
+  width: 60px;
+  height: 3px;
+  border-radius: 5px;
+  background: #fff;
+  margin-left: -90px;
+  font-size: 0;
+}
+.slick-dots li:nth-child(2) button:before {
+  width: 60px;
+  height: 3px;
+  border-radius: 5px;
+  background: #fff;
+  margin-left: -35px;
+  font-size: 0;
+}
+.slick-dots li:nth-child(3) button:before {
+  width: 60px;
+  height: 3px;
+  border-radius: 5px;
+  background: #fff;
+  margin-left: 20px;
+  font-size: 0;
+}
+.skey_btn_block {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: -20px 30px 0 0;
+  position: relative;
+}
+.skey_btn {
+  position: absolute;
+  border-radius: 10px;
+  padding: 10px 50px;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.skey_btn:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 414px) {
+  .skey_btn_block {
+    position: relative;
+  }
+  .slick-dots {
+    position: absolute;
+    bottom: -25px;
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+    margin-left: 100px;
+  }
+}
