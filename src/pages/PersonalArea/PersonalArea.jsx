@@ -88,7 +88,7 @@ const  PersonalArea = ({ color, setColor, setIsAuthenticated }) => {
         });
     }
   }, [local]);
-  console.log(log)
+
   useEffect(() => {
     if (local) {
       axios

@@ -50,6 +50,7 @@ const Cabinet = ({ color, datas, loading, datas_personal, datas_log }) => {
     ],
   };
 
+
   return (
     <div className="cabinet">
       {loading ? (

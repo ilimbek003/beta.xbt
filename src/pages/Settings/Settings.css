@@ -146,6 +146,10 @@
   align-items: center;
   justify-content: center;
 }
+.settings .wrapper_account {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
 .settings .wrapper_account p {
   color: #fff;
   font-size: 16px;
@@ -316,7 +320,7 @@
   background: #9e9ea5;
 }
 .settings .image_data {
-  padding: 15px;
+  margin: 10px 0 0 0;
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -329,12 +333,14 @@
   border-radius: 15px;
   object-fit: cover;
   object-position: center;
+  margin: 0 0 30px 0;
 }
 .settings .btn_data {
   width: 100%;
-  height: 40px;
-  border-radius: 15px;
-  background: #3f3d3d;
+  height: 45px;
+  border-radius: 10px;
+  border: 1px solid var(--unnamed, #4ac49e);
+  background: #262a32;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -382,11 +388,20 @@
 @media (max-width: 800px) {
   .settings .wrapper {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
   }
   .settings .wrapper_account {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex !important;
+    align-items: center !important;
+    flex-direction: column-reverse !important;
+  }
+  .settings .activeited_true,
+  .settings .activeited_not,
+  .settings .activeited_norm,
+  .settings .activeited_false {
+    width: 100%;
+    height: 200px;
+    margin: 0px 0 50px 0;
   }
   .settings .menu_set {
     overflow-y: hidden;
@@ -400,9 +415,27 @@
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     background: none;
   }
+  .settings .menu_set {
+    display: flex;
+    width: 100%;
+  }
+  .settings .menu_set .nav {
+    color: var(--white, #fff);
+    font-size: 18px;
+    font-weight: 500;
+    margin: 40px 0 0 0;
+    padding: 0;
+    width: 100%;
+    height: 45px;
+    text-decoration: none;
+    border-radius: 10px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+  }
 }
 
-.settings .modal2fa{
+.settings .modal2fa {
   position: fixed;
   top: 0;
   left: 0;
@@ -417,10 +450,10 @@
 
 .settings .modal__content {
   max-width: 800px;
-  min-height:506px;
+  min-height: 506px;
   border: 1px solid #4ac49e;
-  background: #12121C;
-  box-shadow: 0 0 15px 0 rgba(35, 100, 242, 0.10);
+  background: #12121c;
+  box-shadow: 0 0 15px 0 rgba(35, 100, 242, 0.1);
   border-radius: 20px;
   padding: 20px;
   color: #fff;
@@ -429,45 +462,45 @@
   justify-content: center;
   flex-direction: column;
 }
-.settings .acc h1{
+.settings .acc h1 {
   text-align: center;
   font-size: 23px;
   font-weight: 600;
 }
 
-.settings .acc p{
-  color: #64748B;
+.settings .acc p {
+  color: #64748b;
   font-weight: 400;
   line-height: 1;
   margin-bottom: 16px;
 }
 
-.settings .market{
+.settings .market {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
 
-.settings .market img{
+.settings .market img {
   margin: 0 0 20px 0;
   width: 160px;
 }
 
-.settings .market p{
-  color: #64748B;
+.settings .market p {
+  color: #64748b;
   font-weight: 400;
   line-height: 1;
   text-align: center;
-  width:500px;
+  width: 500px;
   margin: 0 0 15px 0;
 }
-.settings .display_2fa{
+.settings .display_2fa {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.settings .market button{
+.settings .market button {
   width: 100%;
   max-width: 200px;
   height: 45px;
@@ -477,38 +510,38 @@
   border-radius: 20px;
   font-size: 16px;
   margin-top: 10px;
-  color:  #fff;
+  color: #fff;
   background: #4ac49e;
   font-weight: 500;
 }
-.settings .market h5{
+.settings .market h5 {
   font-size: 18px;
   margin-top: 10px;
   margin-left: 10px;
   text-decoration: underline;
 }
-.settings .modal__content form{
+.settings .modal__content form {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
 
-.settings .modal__content form input{
+.settings .modal__content form input {
   width: 450px;
   height: 45px;
   background: transparent;
   outline: none;
   border: 1px solid #4ac49e;
   border-radius: 10px;
-  box-shadow: 0 0 15px 0 rgba(35, 100, 242, 0.10);
-  margin: 15px 0 15px 0 ;
+  box-shadow: 0 0 15px 0 rgba(35, 100, 242, 0.1);
+  margin: 15px 0 15px 0;
   color: #ffffff;
   font-size: 14px;
   padding: 0 0 0 20px;
 }
 
-.settings .modal__content form button{
+.settings .modal__content form button {
   width: 100%;
   height: 45px;
   outline: none;
@@ -516,7 +549,7 @@
   cursor: pointer;
   border-radius: 10px;
   font-size: 16px;
-  color:  #fff;
+  color: #fff;
   background: #4ac49e;
   font-weight: 500;
 }
