@@ -153,7 +153,6 @@ const Settings = ({
      setImageUrlAddress(imageFile);
    }
  }
-  console.log(imageUrlPassport);
 
 const VerificationChange = async (e) => {
   e.preventDefault();
@@ -177,7 +176,6 @@ const VerificationChange = async (e) => {
         ...headers,
       },
     });
-    console.log(response.data);
     setLoading(false);
   } catch (error) {
     Alert(

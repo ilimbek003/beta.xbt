@@ -26,16 +26,18 @@
   width: 150px;
   height: 40px;
   display: flex;
+  align-items: center;
 }
 .head .wrapper_balanse .circle {
-  width: 35px;
-  height: 35px;
+  width: 45px;
+  height: 45px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: #fff;
   border-radius: 50%;
   margin-right: 12px;
+  padding: 5px 0 0 0;
 }
 .head .wrapper_balanse .balanse h3 {
   color: var(--base-0, #fff);
@@ -89,7 +91,7 @@
   color: #fff;
   font-size: 16px;
   font-weight: 500;
-  border-radius: 10px;
+  border-radius: 3px;
   text-decoration: none;
 }
 .head .menu_router:hover {
@@ -199,4 +201,33 @@
       right: 0;
     }
   }
+}
+
+.burgers {
+  cursor: pointer;
+}
+
+.burgers input[type="checkbox"] {
+  display: none;
+}
+
+.burgers div {
+  width: 30px;
+  height: 3px;
+  border-radius: 5px;
+  background-color: var(--green);
+  margin: 0 0 5px 0;
+  transition: transform 0.3s ease;
+}
+
+.burgers input[type="checkbox"]:checked ~ div:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.burgers input[type="checkbox"]:checked ~ div:nth-child(2) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.burgers input[type="checkbox"]:checked ~ div:nth-child(3) {
+  transform: scale(0);
 }

@@ -50,7 +50,6 @@ const Cabinet = ({ color, datas, loading, datas_personal, datas_log }) => {
     ],
   };
 
-
   return (
     <div className="cabinet">
       {loading ? (
@@ -60,92 +59,99 @@ const Cabinet = ({ color, datas, loading, datas_personal, datas_log }) => {
       ) : (
         <div className="container">
           <h1 className="h1">Ваши кошельки</h1>
-          <div className="wrapper">
-            <Slider {...settings}>
-              {datas ? (
-                datas.map((el) => (
-                  <div key={el.id}>
-                    <div className="box">
-                      <div className="save">
-                        <img src={el.logo} alt="" />
-                        <div className="content">
-                          <div className="h1">
-                            <h1>{el.currency}</h1> <h1>{el.balance}</h1>
+
+          <div className="wrapper_history">
+            <div>
+              <div className="wrapper">
+                {datas ? (
+                  datas.map((el) => (
+                    <div key={el.id}>
+                      <div className="box">
+                        <div className="save">
+                          <div
+                            style={{
+                              width: "50%",
+                              display: "flex",
+                              alignItems: "center",
+                            }}
+                          >
+                            <div className="content" style={{ width: "60%" }}>
+                              <img src={el.logo} alt="" />
+                              <div className="h1">
+                                <h1>{el.currency}</h1>
+                                <p>{el.name}</p>
+                              </div>
+                            </div>
+                            <div style={{ width: "40%" }}>
+                              <h1>{el.balance}</h1>
+                              <h1
+                                style={{
+                                  color:
+                                    el.converted_balance > 0
+                                      ? "#0F8F67"
+                                      : "red",
+                                }}
+                              >
+                                ${el.converted_balance}
+                              </h1>
+                            </div>
                           </div>
-                          <p>{el.name}</p>
+                          <div className="btns" style={{ width: "50%" }}>
+                            <button
+                              disabled={el.can_deposit ? false : true}
+                              onClick={() =>
+                                navigate(`/dashboard/top-up/${el.currency}`)
+                              }
+                              style={{
+                                background: el.can_deposit
+                                  ? color
+                                    ? "var(--green)"
+                                    : "var(--orange)"
+                                  : "#262a32",
+                                border: el.can_deposit
+                                  ? "none"
+                                  : "1px solid #cdcdcd",
+                                color: el.can_deposit ? "#FFF" : "#cdcdcd",
+                                cursor: el.can_deposit
+                                  ? "pointer"
+                                  : "not-allowed",
+                              }}
+                              className="commiss"
+                            >
+                              Ввод
+                            </button>
+                            <button
+                              disabled={el.can_withdraw ? false : true}
+                              onClick={() =>
+                                navigate(
+                                  `/dashboard/translation/${el.currency}`
+                                )
+                              }
+                              style={{
+                                background: el.can_withdraw
+                                  ? "#434343"
+                                  : "#262a32",
+                                border: el.can_withdraw
+                                  ? "none"
+                                  : "1px solid #cdcdcd",
+                                color: el.can_withdraw ? "#FFF" : "#cdcdcd",
+                                cursor: el.can_withdraw
+                                  ? "pointer"
+                                  : "not-allowed",
+                              }}
+                              className="conclusion"
+                            >
+                              Вывод
+                            </button>
+                          </div>
                         </div>
                       </div>
-                      <div className="btns">
-                        <button
-                          disabled={el.can_deposit ? false : true}
-                          onClick={() =>
-                            navigate(`/dashboard/top-up/${el.currency}`)
-                          }
-                          style={{
-                            background: el.can_deposit
-                              ? color
-                                ? "var(--green)"
-                                : "var(--orange)"
-                              : "#262a32",
-                            border: el.can_deposit
-                              ? "none"
-                              : "1px solid #cdcdcd",
-                            color: el.can_deposit ? "#FFF" : "#cdcdcd",
-                            cursor: el.can_deposit ? "pointer" : "not-allowed",
-                          }}
-                          className="commiss"
-                        >
-                          Ввод
-                        </button>
-                        <button
-                          disabled={el.can_withdraw ? false : true}
-                          onClick={() =>
-                            navigate(`/dashboard/translation/${el.currency}`)
-                          }
-                          style={{
-                            background: el.can_withdraw ? "#434343" : "#262a32",
-                            border: el.can_withdraw
-                              ? "none"
-                              : "1px solid #cdcdcd",
-                            color: el.can_withdraw ? "#FFF" : "#cdcdcd",
-                            cursor: el.can_withdraw ? "pointer" : "not-allowed",
-                          }}
-                          className="conclusion"
-                        >
-                          Вывод
-                        </button>
-                      </div>
                     </div>
-                  </div>
-                ))
-              ) : (
-                <h1>данных нет</h1>
-              )}
-            </Slider>
-          </div>
-          <div className="wrapper_history">
-            <div className="history_accaunt">
-              <h1>История аккаунта</h1>
-              <div className="boxs">
-                <p>Дата</p>
-                <p>Действие</p>
-                <p>IP Адрес</p>
-                <p>Браузер</p>
+                  ))
+                ) : (
+                  <h1>данных нет</h1>
+                )}
               </div>
-              {datas_log ? (
-                datas_log.map((el, id) => (
-                  <div key={id}>
-                    <div className="box_history">
-                      <p>{el.date}</p>
-                      <p>{el.action}</p>
-                      <p>{el.ip}</p>
-                      <p>{el.browser}</p>
-                    </div>
-                  </div>
-                ))
-              ) : (
-                <h1>данных нет</h1>
-              )}
             </div>
             <div className="wrapper_accaunt">
               <div className="save_box one">

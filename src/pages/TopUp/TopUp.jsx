@@ -105,6 +105,7 @@ const TopUp = ({ color, currencies }) => {
       setOpenModal(dataDepozit);
     }
   }, [nikcurrancy]);
+  console.log(currencies);
 
   useEffect(() => {
     if (openModal[0]) {

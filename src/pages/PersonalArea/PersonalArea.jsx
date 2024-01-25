@@ -60,7 +60,7 @@ const  PersonalArea = ({ color, setColor, setIsAuthenticated }) => {
     }
   }, [local]);
 
-  function balanceTether() {
+  function  balanceTether() {
     if (local) {
       axios
         .get(url + "/currencies", { headers })
@@ -96,7 +96,7 @@ const  PersonalArea = ({ color, setColor, setIsAuthenticated }) => {
         .then((response) => {
           setPersonal(response.data);
         })
-        .catch((error) => {
+        .catch((error) => { 
           console.error("Error:", error);
         });
     }
@@ -140,7 +140,7 @@ const  PersonalArea = ({ color, setColor, setIsAuthenticated }) => {
       <Routes>
         <Route path="top-up" element={<TopUp color={color} />} />
         <Route
-          path="top-up/:nikcurrancy"
+          path="top-up/:nikcurrancy"  
           element={<TopUp color={color} currencies={datas} />}
         />
         <Route
@@ -170,7 +170,7 @@ const  PersonalArea = ({ color, setColor, setIsAuthenticated }) => {
         />
         <Route path="translation" element={<Withdraw datas={datas} />} />
         <Route
-          path="translation/:currancy"d
+          path="translation/:currancy"
           element={
             <Translation
               datas_tran={datas}
