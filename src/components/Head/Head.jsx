@@ -127,7 +127,7 @@ const Head = ({
             <FaShoppingBag className="icon" size={25} />
             Купить
           </NavLink>
-          <button
+          {/* <button
             style={{ outline: "none", border: "none", position: "relative" }}
             disabled={true}
             className="menu_router"
@@ -138,7 +138,7 @@ const Head = ({
               style={{ color: "red", position: "absolute", right: 0, top: 0 }}
               size={20}
             />
-          </button>
+          </button> */}
           <NavLink to="settings" className="menu_router">
             <IoSettingsSharp className="icon" size={25} />
             Настройки

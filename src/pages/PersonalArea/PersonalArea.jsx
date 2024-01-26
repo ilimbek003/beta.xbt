@@ -18,7 +18,7 @@ import SellCryptocurrency from "../SellCryptocurrency/SellCryptocurrency";
 import Protocol from "../Protocol/Protocol";
 import Cabinet from "../Cabinet/Cabinet";
 
-const  PersonalArea = ({ color, setColor, setIsAuthenticated }) => {
+const PersonalArea = ({ color, setColor, setIsAuthenticated }) => {
   const [home, setHome] = useState(false);
   const navigate = useNavigate();
   const [local, setLocal] = useState("");
@@ -29,7 +29,8 @@ const  PersonalArea = ({ color, setColor, setIsAuthenticated }) => {
   const datas = Object.values(count).map((data) => data);
   const datas_log = Object.values(log).map((data) => data);
   const datas_personal = Object.values(personal).map((data) => data);
-  const is2faEnabled = personal && personal.profile && personal.profile.security['2fa']
+  const is2faEnabled =
+    personal && personal.profile && personal.profile.security["2fa"];
 
   useEffect(() => {
     document.title = "XBT - Покупка. Продажа. Обмен криптовалюты";
@@ -60,7 +61,7 @@ const  PersonalArea = ({ color, setColor, setIsAuthenticated }) => {
     }
   }, [local]);
 
-  function  balanceTether() {
+  function balanceTether() {
     if (local) {
       axios
         .get(url + "/currencies", { headers })
@@ -79,7 +80,7 @@ const  PersonalArea = ({ color, setColor, setIsAuthenticated }) => {
       axios
         .get(url + "/profile/action-log", { headers })
         .then((response) => {
-          console.log(response.data)
+          console.log(response.data);
           setLog(response.data.action);
         })
         .catch((error) => {
@@ -96,7 +97,7 @@ const  PersonalArea = ({ color, setColor, setIsAuthenticated }) => {
         .then((response) => {
           setPersonal(response.data);
         })
-        .catch((error) => { 
+        .catch((error) => {
           console.error("Error:", error);
         });
     }
@@ -140,7 +141,7 @@ const  PersonalArea = ({ color, setColor, setIsAuthenticated }) => {
       <Routes>
         <Route path="top-up" element={<TopUp color={color} />} />
         <Route
-          path="top-up/:nikcurrancy"  
+          path="top-up/:nikcurrancy"
           element={<TopUp color={color} currencies={datas} />}
         />
         <Route
@@ -159,7 +160,7 @@ const  PersonalArea = ({ color, setColor, setIsAuthenticated }) => {
           path="settings"
           element={
             <Settings
-                is2faEnabled={is2faEnabled}
+              is2faEnabled={is2faEnabled}
               color={color}
               datas_personal={datas_personal}
               personalChange={personalChange}
