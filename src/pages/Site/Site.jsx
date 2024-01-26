@@ -16,6 +16,8 @@ import NewsDetails from "../NewsDetails/NewsDetails";
 import axios from "axios";
 import { url } from "../../api";
 import Contacts from "../Contacts/Contacts";
+import PrivacyPolicy from "../Policy/PrivacyPolicy";
+import Terms from "../Policy/Terms";
 
 const Site = ({ setColor, color, isAuthenticated, setIsAuthenticated }) => {
   const [loading, setLoading] = useState(true);
@@ -73,6 +75,8 @@ const Site = ({ setColor, color, isAuthenticated, setIsAuthenticated }) => {
         />
         <Route path="contacts" element={<Contacts />} />
         <Route path="*" element={<NotFoundPage />} />
+        <Route path="privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="terms" element={<Terms />} />
       </Routes>
     </div>
   );
