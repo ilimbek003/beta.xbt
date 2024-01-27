@@ -121,7 +121,7 @@ const PersonalArea = ({ color, setColor, setIsAuthenticated }) => {
       axios
         .get(url + "/profile/action-log", { headers })
         .then((response) => {
-          setLog(response.data.list.query);
+          setLog(response.data.action);
         })
         .catch((error) => {
           console.error("Error:", error);

@@ -37,12 +37,21 @@
   background: #fff;
   border-radius: 50%;
   margin-right: 12px;
-  padding: 5px 0 0 0;
+  padding: 5px 0;
 }
 .head .wrapper_balanse .balanse h3 {
+  display: flex;
+  align-items: center;
+  gap: 2px;
   color: var(--base-0, #fff);
+  font-size: 18px;
+  font-weight: 500;
+}
+.head .wrapper_balanse .balanse h3 span {
+  color: rgba(255, 255, 255, .3);
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 400;
+  line-height: 1;
 }
 .head .user {
   display: flex;
@@ -75,6 +84,7 @@
 }
 .head .wrapper_menu {
   margin-top: 35px;
+  padding-right: 10px;
   width: 100%;
   min-height: 50px;
   display: flex;
@@ -127,15 +137,12 @@
   top: 145px;
   right: 0;
   position: absolute;
-  width: 200px;
+  /* width: 200px; */
   min-height: 200px;
   padding: 10px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
+  border-radius: 3px;
   background: #171822;
-  box-shadow: 5px 10px 15px #171822;
+  /* box-shadow: 5px 10px 15px #171822; */
   z-index: 99999;
   animation: fixed_modal 0.7s ease;
 }
@@ -230,4 +237,12 @@
 
 .burgers input[type="checkbox"]:checked ~ div:nth-child(3) {
   transform: scale(0);
+}
+
+.balance-text {
+  color: rgba(255, 255, 255, .6);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  white-space: nowrap;
 }

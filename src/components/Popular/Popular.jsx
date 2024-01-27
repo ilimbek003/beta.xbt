@@ -56,9 +56,9 @@ const Popular = ({ color, data, datas }) => {
             <p>Торговая пара</p>
             <p>Цена</p>
           </div>
-          {data.map((el, index, id) => (
-            <>
-              <div key={index} className="box first">
+          {data.map((el, i, key) => (
+            <div>
+              <div key={i} className="box first">
                 <div className="logo_div">
                   <img src={el.logo} alt="" />
                   <p className="title">{el.name}</p>
@@ -100,14 +100,14 @@ const Popular = ({ color, data, datas }) => {
                   Торговля{" "}
                 </button>
               </div>
-              <div key={id} className="box secend">
+              <div key={key} className="box secend">
                 <div className="logo_div">
                   <img src={el.logo} alt="" />
                   <p className="title">{el.currency}</p>
                 </div>
                 <p>{el.rate}</p>
               </div>
-            </>
+            </div>
           ))}
         </div>
         <button

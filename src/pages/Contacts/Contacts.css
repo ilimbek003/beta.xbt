@@ -25,10 +25,15 @@
   margin-top: 13px;
 }
 .contacts p {
-  margin-top: 8px;
+  padding: 15px 0 0 0;
   color: #cdcdcd;
   font-size: 17px;
   font-weight: 300;
+}
+.contacts p a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid #cdcdcd;
 }
 .contacts img {
   width: 100%;

@@ -24,7 +24,7 @@ const BuyCryptocurrency = ({ datas }) => {
   }, [datas, value]);
 
   return (
-    <div id="buy_cryptocurrency">
+    <div id="sell_cryptocurrency">
       <div className="container">
         <div className="holder">
           <h1>Купить Криптовалюту</h1>

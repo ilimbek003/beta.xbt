@@ -65,7 +65,7 @@ const Operations = () => {
         </div>
       ) : (
         <div className="container">
-          <h1>История операция</h1>
+          <h1>История операции</h1>
           {modal &&
             (bec == [] ? (
               setModal(false)
@@ -204,9 +204,7 @@ const Operations = () => {
                   className="not_data_icon"
                   size={45}
                 />
-                <h1 className="not_data_h1">
-                  Еще нет созданных операций. Ваш первый шаг важен!
-                </h1>
+                <h1 className="not_data_h1">Нет данных</h1>
               </div>
             )}
           </div>

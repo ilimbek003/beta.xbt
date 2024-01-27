@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Head.css";
 import { MdAccountBalanceWallet } from "react-icons/md";
 import { RxExit } from "react-icons/rx";
@@ -30,6 +30,32 @@ const Head = ({
   const [menu, setMenu] = useState(false);
   const navigate = useNavigate();
   const [modalBurger, setModalBurger] = useState(false);
+  const [currencies, setCurrencies] = useState([]);
+  const [local, setLocal] = useState("");
+
+  const headers = {
+    Authorization: `Bearer ${local}`,
+  };
+  
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setLocal(token);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (local) {
+      axios
+        .get(url + "/currencies", { headers })
+        .then((response) => {
+          setCurrencies(response.data);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    }
+  }, [local]);
 
   const handleLogout = () => {
     axios
@@ -68,11 +94,11 @@ const Head = ({
               />
             </div>
             <div>
-              <h3>Ваш баланс</h3>
-              <h3>{balanceFilter ? balanceFilter : <Loading2 />}</h3>
+              <h4 className="balance-text">Ваш баланс</h4>
+              <h3>${currencies.total_balance ? currencies.total_balance : <Loading2 />}</h3>
             </div>
           </div>
-          <div onClick={() => setColor(!color) || navigate("/")}>
+          <div className="header-logo" onClick={() => setColor(!color) || navigate("/")}>
             <img style={{ height: "25px" }} src={Xbt} alt="" />
           </div>
           <div className="user">
@@ -198,41 +224,14 @@ const Head = ({
                 <FaShoppingBag className="icon" size={25} />
                 Купить
               </NavLink>
-              <button
-                style={{
-                  outline: "none",
-                  border: "none",
-                  position: "relative",
-                }}
-                disabled={true}
-                className="menu_router"
-              >
-                {/* <NavLink to="payment-for-services" className="menu_router"> */}
-                <BsFillCreditCardFill className="icon" size={25} />
-                Оплата услуг
-                <AiOutlineLock
-                  style={{
-                    color: "red",
-                    position: "absolute",
-                    right: 0,
-                    top: 0,
-                  }}
-                  size={20}
-                />
-                {/* </NavLink> */}
-              </button>
-              <NavLink to="settings" className="menu_router">
-                <IoSettingsSharp className="icon" size={25} />
-                Настройки
-              </NavLink>
               <NavLink to="operations" className="menu_router">
                 <IoNewspaperSharp className="icon" size={25} />
-                Операции
+                История операции
               </NavLink>
-              {/* <NavLink to="send-funds" className="menu_router">
-                <IoPaperPlane className="icon" size={25} />
-                Отправка
-              </NavLink> */}
+              <NavLink to="settings" className="menu_router">
+                <IoSettingsSharp className="icon" size={25} />
+                Настройки профиля
+              </NavLink>
             </div>
           </>
         )}

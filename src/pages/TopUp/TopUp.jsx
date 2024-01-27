@@ -280,13 +280,14 @@ const TopUp = ({ color, currencies }) => {
                 <div onClick={() => setModal(false)} className="not"></div>
                 <div className="modal_container">
                   <h1>{name.name} депозитный адрес</h1>
-                  <p>
-                    Минимальная сумма ≈ 10 USDT Если отправить криптовалюту на
+                  <p className="text-center" style={{textAlign:"center"}}>
+                    Минимальная сумма ≈ 10 USDT.<br />
+                    Если отправить криптовалюту на
                     неверный адрес (например, биткойн на адрес Bitcoin Cash),
                     криптовалюта будет потеряна
                   </p>
-                  <img src={depozit.qrcode_url} alt="" />
-                  <p className="address">
+                  <img src={depozit.qrcode_url} alt="" className="deposit-qr-image"/>
+                  <p className="address" style={{textAlign:"center"}}>
                     {name.name == "Tether" ? name.name + " TRC20" : name.name}{" "}
                     Адрес
                   </p>

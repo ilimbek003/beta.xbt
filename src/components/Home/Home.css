@@ -39,15 +39,14 @@
 }
 .home .btn {
   margin-top: 40px;
-  width: 65%;
   outline: none;
   border: none;
-  padding: 15px 25px 15px 25px;
+  padding: 15px 35px;
   background: var(--green);
-  border-radius: 20px;
+  border-radius: 5px;
   color: #fff;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
 }
 .home .btn:hover {
