@@ -51,7 +51,7 @@ const Main = ({ color, reviewData }) => {
       <Amazing color={color} />
       <Stay color={color} />
       <Advantages color={color} />
-      <BuyCurrency color={color} />
+      {/* <BuyCurrency color={color} /> */}
       <TheySay color={color} reviewData={reviewData} />
       <Questions color={color} />
     </div>
