@@ -81,12 +81,8 @@ const Footer = ({color}) => {
                     </div>
                 </div>
                 <div className="foot">
-                    <p>Все права защищены 2023 &copy; XBT LLC</p>
-                    {/* <div className="icons">
-            <img src={Instagram} />
-            <img src={Facebook} />
-            <img src={Twitter} />
-          </div> */}
+                    <p>Все права защищены 2024 &copy; XBT LLC</p>
+                    <p>Made with ❤️ by <a href="https://navisdevs.io">NavisDevs</a></p>
                 </div>
             </div>
         </div>

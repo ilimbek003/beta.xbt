@@ -190,23 +190,23 @@ const Cabinet = ({ color, datas, loading, datas_personal, datas_log }) => {
               </div>
               {datas_personal[0] ? (
                 <div className="save_box two">
-                  <h1>Лимиты за текущий день в USDT</h1>
+                  <h1>Лимиты за текущий день</h1>
                   <div className="replenishment">
                     <p>Пополнение</p>
                     <p>Продажа</p>
                     <p>Покупка</p>
                   </div>
-                  <div className="replenishment">
-                    <p>{datas_personal[0].limits.refill}</p>
-                    <p>{datas_personal[0].limits.sell}</p>
-                    <p>{datas_personal[0].limits.buy}</p>
+                  <div className="replenishment info">
+                    <p>${datas_personal[0].limits.refill}</p>
+                    <p>${datas_personal[0].limits.sell}</p>
+                    <p>${datas_personal[0].limits.buy}</p>
                   </div>
                 </div>
               ) : (
                 ""
               )}
               <div className="save_box three">
-                <h1>Персональные данные</h1>
+                <h1 className="title-v1">Персональные данные</h1>
                 {loading
                   ? ""
                   : datas_personal.map((el, id) => (

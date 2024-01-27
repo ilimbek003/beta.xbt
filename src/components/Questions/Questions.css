@@ -15,8 +15,8 @@
 #questions .sit {
   width: 100%;
   height: 50%;
-  border-radius: 15px;
-  border: 1px solid var(--unnamed, #9e9ea5);
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, .3);
   background: var(--unnamed, #171822);
   margin-bottom: 20px;
   padding: 15px 20px;
@@ -25,12 +25,10 @@
 #questions .box {
   width: 100%;
   height: 50%;
-  border-radius: 15px;
+  border-radius: 4px;
   border: 1px solid var(--unnamed, #9e9ea5);
   background: var(--unnamed, #171822);
   margin-bottom: 50px;
-  box-shadow: -4.37710428237915px 3.2828280925750732px 6.419489860534668px 0
-    #656262;
 }
 #questions .magic {
   margin-left: auto;
@@ -84,8 +82,8 @@
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  padding: 10px 50px;
-  border-radius: 10px;
+  padding: 15px 35px;
+  border-radius: 4px;
   background: var(--green);
   border: none;
   cursor: pointer;

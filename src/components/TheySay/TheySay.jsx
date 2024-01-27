@@ -52,8 +52,8 @@ const TheySay = ({ color, reviewData }) => {
         <h1 className="they_say_h1">Что о нас говорят</h1>
         <div className="they_say_flex">
           <Slider {...settings}>
-            {reviewData.map((el) => (
-              <div className="slide_review">
+            {reviewData.map((el, i) => (
+              <div className="slide_review"  key={i}>
                 <div className="they_say_block">
                   <div className="they_say_block_avatar">
                     <img src={el.photo} alt="" />

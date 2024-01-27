@@ -49,8 +49,8 @@
 .faq .sit {
   width: 100%;
   height: 50%;
-  border-radius: 15px;
-  border: 1px solid var(--unnamed, #9e9ea5);
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, .3);
   background: var(--unnamed, #171822);
   margin-bottom: 20px;
   padding: 15px 20px;
@@ -59,12 +59,10 @@
 .faq .box {
   width: 100%;
   height: 50%;
-  border-radius: 15px;
+  border-radius: 4px;
   border: 1px solid var(--unnamed, #9e9ea5);
   background: var(--unnamed, #171822);
   margin-bottom: 50px;
-  box-shadow: -4.37710428237915px 3.2828280925750732px 6.419489860534668px 0
-    #656262;
 }
 .faq .magic {
   margin-left: auto;
@@ -137,6 +135,11 @@
 }
 
 @media (max-width: 630px) {
+  .faq .buttons_category {
+    flex-wrap: nowrap;
+    gap: 20px;
+    overflow: auto;
+  }
   .faq h1 {
     font-size: 30px;
   }
@@ -153,11 +156,14 @@
     width: 20px;
   }
   .faq .btn {
-    width: 175px;
-    border-radius: 7px;
-    height: 50px;
+    width: 100%;
+    height: 100%;
+    border-radius: 3px;
     color: #fff;
-    font-size: 13px;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 15px 25px;
+    white-space: nowrap;
+    margin: 0;
   }
 }
