@@ -29,7 +29,7 @@
 }
 .cabinet .box .save {
   width: 100%;
-  display:flex;
+  display: flex;
   align-items: center;
 }
 .cabinet .box .save img {
@@ -78,6 +78,9 @@
 }
 .cabinet .btns .conclusion:hover {
   opacity: 0.8;
+}
+.cabinet .wrapper {
+  position: relative;
 }
 .cabinet .wrapper_history {
   width: 100%;
