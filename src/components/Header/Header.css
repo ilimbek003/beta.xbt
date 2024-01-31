@@ -7,13 +7,12 @@
 
 .header .container {
     margin: 0 auto;
-    max-width: 1140px;
-    width: 90%;
-    height: 55px;
     display: flex;
     align-items: center;
     background: rgba(23, 24, 34, 0.2);
     backdrop-filter: blur(10px);
+    border-radius: 5px;
+    padding: 10px;
 }
 
 .header a {
@@ -24,8 +23,13 @@
 }
 
 .header .pages a {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1;
     position: relative;
     transition: 0.2s ease;
+    padding: 8px 0;
 }
 
 .header .pages a:hover::before {
@@ -41,16 +45,15 @@
     background-color: #ffffff;
     position: absolute;
     left: 0;
-    bottom: -1px;
+    bottom: 0;
     transform: scaleX(0);
     transform-origin: center;
     transition: transform 0.5s;
 }
 
 .header .color {
-    width: 87px;
-    height: 55px;
-    cursor: pointer;
+    display: flex;
+    align-items: center;
 }
 
 .header .color:hover {
@@ -78,10 +81,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 62%;
-    height: 44px;
+    color: #fff;
     font-size: 16px;
-    border-radius: 5px;
+    font-weight: 500;
+    line-height: 1;
+    border-radius: 4px;
+    padding: 12px 35px;
 }
 
 .header .btn:hover {
@@ -100,26 +105,29 @@
 }
 
 .header .hamburger {
-    width: 3rem;
-    height: 45px;
+    width: 24px;
+    height: 24px;
     z-index: 5;
     cursor: pointer;
 }
 
 .header .hamburger div {
     position: relative;
-    width: 3em;
-    height: 7px;
+    width: 30px;
+    height: 4px;
     border-radius: 3px;
     transition: all 0.3s ease-in-out;
     background: #fff;
-    margin-left: -10px;
     margin-top: 6px;
+}
+
+.header .hamburger div:first-child {
+    margin: 0;
 }
 
 .header #toggle:checked + .hamburger .top-bun {
     transform: rotate(-45deg);
-    margin-top: 25px;
+    margin-top: 10px;
 }
 
 .header #toggle:checked + .hamburger .bottom-bun {
@@ -129,7 +137,7 @@
 
 .header #toggle:checked + .hamburger .meat {
     transform: rotate(45deg);
-    margin-top: -7px;
+    margin-top: -4px;
 }
 
 .header .nav {
@@ -150,6 +158,10 @@
     align-items: start;
     flex-direction: column;
     animation: fixed_modal_menu 0.7s ease;
+}
+
+.logo-header {
+    height: 25px;
 }
 
 @keyframes fixed_modal_menu {
@@ -212,5 +224,9 @@
     .header .hamburger,
     .header .nav {
         display: block;
+    }
+
+    .header .nav_wrapper .btn {
+        margin-top: 10px;
     }
 }

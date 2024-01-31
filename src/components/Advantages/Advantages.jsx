@@ -1,11 +1,14 @@
 import React from "react";
 import "./Advantages.css";
 import Slider from "react-slick";
-import images from "../../img/image 4.svg";
+import images from "../../img/whitebit.svg";
+import whitebit from "../../img/whitebit.svg";
 import pay from "../../img/logo.227fa597.png";
 import binance from "../../img/1681906234binance-logo-png.png";
 import bybit from "../../img/Без названия.svg";
-import kraken from "../../img/full-kraken-logo-2048x322.webp";
+import kraken from "../../img/kraken-4.svg";
+import bitfinex from "../../img/bitfinex.png";
+import sumsub from "../../img/sumsub.png";
 const Advantages = () => {
   const settingsLeft = {
     dots: false,
@@ -69,19 +72,13 @@ const Advantages = () => {
             <img src={kraken} alt="" />
           </div>
           <div>
-            <img src={images} alt="" />
+            <img src={bitfinex} alt="" />
           </div>
           <div>
-            <img src={images} alt="" />
+            <img src={whitebit} alt="" />
           </div>
           <div>
-            <img src={images} alt="" />
-          </div>
-          <div>
-            <img src={images} alt="" />
-          </div>
-          <div>
-            <img src={images} alt="" />
+            <img src={sumsub} alt="" />
           </div>
         </Slider>
       </div>
@@ -101,19 +98,13 @@ const Advantages = () => {
               <img src={kraken} alt="" />
             </div>
             <div>
-              <img src={images} alt="" />
+              <img src={bitfinex} alt="" />
             </div>
             <div>
-              <img src={images} alt="" />
+              <img src={whitebit} alt="" />
             </div>
             <div>
-              <img src={images} alt="" />
-            </div>
-            <div>
-              <img src={images} alt="" />
-            </div>
-            <div>
-              <img src={images} alt="" />
+              <img src={sumsub} alt="" />
             </div>
           </Slider>
         </div>

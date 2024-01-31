@@ -14,6 +14,23 @@ const Blocks = ({ data, datas }) => {
     setRatesArray(ratesArray);
   }, [datas]);
 
+  function clean(obj) {
+    for (var propName in obj) {
+      if (obj[propName] === null || obj[propName] === undefined) {
+        delete obj[propName];
+      }
+    }
+    return obj
+  }
+
+  function preparePrices(data) {
+    let prices = [{price: '68.25'}]
+    data.forEach((item) => {
+      prices.push({ price: item.price })
+    })
+    return prices;
+  }
+
   const settings = {
     dots: false,
     arrows: false,
@@ -79,10 +96,11 @@ const Blocks = ({ data, datas }) => {
                     className="line_chart_one"
                     width={120}
                     height={35}
+                    margin={{ top: 0, left: 0, right: 0, bottom: 0 }}
                     data={ratesArray}
                   >
                     <Line
-                      type="First dataset"
+                      type="monotone"
                       dataKey="price"
                       stroke={el.difference.includes("-") ? "red" : "#30E0A1"}
                       dot={false}

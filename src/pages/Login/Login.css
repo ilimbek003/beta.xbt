@@ -11,6 +11,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+    padding: 120px 0;
 }
 
 #login .bg_login {
@@ -145,6 +146,7 @@
     #login .login__flex {
         display: grid;
         grid-template-columns: 1fr;
+        padding: 0;
     }
 
     #login .bg_login {

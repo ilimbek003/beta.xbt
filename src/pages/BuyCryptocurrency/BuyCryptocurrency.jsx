@@ -69,6 +69,7 @@ const BuyCryptocurrency = ({ datas }) => {
                 </div>
                 <div className="with_bys">
                   <button
+                    className="green-button"
                     onClick={() =>
                       navigate(`/dashboard/buy-cryptocurrency/${el.currency}`)
                     }

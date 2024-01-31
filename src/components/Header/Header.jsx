@@ -21,7 +21,7 @@ const Header = ({setColor, color, isAuthenticated}) => {
                     className="color"
                     onClick={() => setColor(!color) || navigate("/") || setMenu(false)}
                 >
-                    <img style={{height: "25px", margin:"15px 0px 15px 10px"}} src={Xbt} alt=""/>
+                    <img src={Xbt} alt="XBT LLC" className="logo-header"/>
                 </div>
                 <input
                     checked={menu}
@@ -53,16 +53,16 @@ const Header = ({setColor, color, isAuthenticated}) => {
                         {" "}
                         Новости{" "}
                     </NavLink>
-                    <NavLink to="contacts" className="page">
-                        Контакты{" "}
+                    <NavLink to="/feedback" className="page">
+                        {" "}
+                        Отзывы{" "}
                     </NavLink>
                     <NavLink to="/faq" className="page">
                         {" "}
                         FAQ{" "}
                     </NavLink>
-                    <NavLink to="/feedback" className="page">
-                        {" "}
-                        Отзывы{" "}
+                    <NavLink to="contacts" className="page">
+                        Контакты{" "}
                     </NavLink>
                 </div>
                 <div className="battons">

@@ -3,21 +3,25 @@
   src: url("./fonts/Gilroy-Thin.ttf");
   font-weight: 100;
 }
+
 @font-face {
   font-family: Gilroy;
   src: url("./fonts/Gilroy-UltraLight.ttf");
   font-weight: 200;
 }
+
 @font-face {
   font-family: Gilroy;
   src: url("./fonts/Gilroy-Light.ttf");
   font-weight: 300;
 }
+
 @font-face {
   font-family: Gilroy;
   src: url("./fonts/Gilroy-Regular.ttf");
   font-weight: 400;
 }
+
 @font-face {
   font-family: Gilroy;
   src: url("./fonts/Gilroy-Medium.ttf");
@@ -29,11 +33,13 @@
   src: url("./fonts/Gilroy-Semibold.ttf");
   font-weight: 600;
 }
+
 @font-face {
   font-family: Gilroy;
   src: url("./fonts/Gilroy-Bold.ttf");
   font-weight: 700;
 }
+
 @font-face {
   font-family: Gilroy;
   src: url("./fonts/Gilroy-Extrabold.ttf");
@@ -46,11 +52,13 @@
   src: url("./fonts/Rubik-Light.ttf");
   font-weight: 300;
 }
+
 @font-face {
   font-family: Rubik;
   src: url("./fonts/Rubik-Light.ttf");
   font-weight: 400;
 }
+
 @font-face {
   font-family: Rubik;
   src: url("./fonts/Rubik-Regular.ttf");
@@ -62,11 +70,13 @@
   src: url("./fonts/Rubik-SemiBold.ttf");
   font-weight: 700;
 }
+
 @font-face {
   font-family: Rubik;
   src: url("./fonts/Rubik-Bold.ttf");
   font-weight: 800;
 }
+
 @font-face {
   font-family: Rubik;
   src: url("./fonts/Rubik-ExtraBold.ttf");
@@ -96,6 +106,7 @@ body {
 .green {
   background: var(--green);
 }
+
 .orange {
   background: var(--orange);
 }
@@ -141,35 +152,179 @@ body {
   color: #28A745 !important;
 }
 
+.text-v1 {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.text-v2 {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.text-v3 {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.text-v4 {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.pb-2 {
+  padding-bottom: 20px;
+}
+
+.py-4 {
+  padding: 20px 0;
+}
+
+.green-button {
+  background-color: var(--green) !important;
+}
+
 @media (max-width: 630px) {
   ::-webkit-scrollbar {
     width: 0;
     height: 0;
   }
-  
+
   ::-webkit-scrollbar-thumb {
     background: rgba(90, 90, 90);
   }
-  
+
   ::-webkit-scrollbar-track {
     background: rgba(0, 0, 0, 0.2);
   }
+
   .header-logo {
     display: none;
   }
+
   .cabinet .box .save {
     flex-direction: column;
   }
+
+  .cabinet .box {
+    margin-bottom: 0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, .06);
+  }
+
   .cabinet .btns {
     margin-top: 15px;
   }
-  .cabinet .box .save > div {
+
+  .cabinet .box .save>div {
     width: 100% !important;
+    display: none;
   }
-  .cabinet .box .save > div > div + div {
+
+  .cabinet .box .save>div>div+div {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-end;
+  }
+
+  .top_up .container .top_up_header {
+    margin-bottom: 0 !important;
+  }
+
+  .top_up .wrapper {
+    gap: 0 !important;
+  }
+
+  .top_up .wrapper .box {
+    height: 100%;
+    border-radius: 0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, .06);
+  }
+
+  .top_up .modal .modal_container {
+    width: 90% !important;
+    border-radius: 4px !important;
+  }
+
+  .withdraw .wrapper {
+    gap: 0 !important;
+    margin-top: 20px !important;
+  }
+
+  .withdraw .wrapper .box {
+    height: 100%;
+    border-radius: 0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, .06);
+  }
+
+  #sell_cryptocurrency .holder {
+    margin-bottom: 20px !important;
+  }
+
+  #sell_cryptocurrency .buy_cryp {
+    height: 100% !important;
+    gap: 15px !important;
+  }
+
+  #sell_cryptocurrency .buy_cryp .with_bys {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  #sell_cryptocurrency .buy_cryp button {
+    width: 100% !important;
+    height: 100% !important;
+    padding: 10px 0 !important;
+  }
+
+  .operations .wrapper .save_oper, .operations .wrapper .box {
+    padding: 15px 0 !important;
+  }
+
+  .operations .wrapper .save_oper img {
+    margin-right: 15px;
+  }
+
+  .operations .wrapper .save_oper p {
+    font-size: 16px !important;
+    font-weight: 500 !important;
+  }
+
+  .operations .modal {
+    width: 90% !important;
+    border-radius: 5px !important;
+  }
+
+  .settings .menu_set {
+    margin-top: 20px;
+  }
+
+  .settings .menu_set .nav {
+    white-space: nowrap;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    padding: 10px 20px !important;
+    border-radius: 4px !important;
+  }
+
+  .settings .capsula {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .settings .capsula p {
+    font-size: 14px !important;
+    line-height: 1;
   }
 }
