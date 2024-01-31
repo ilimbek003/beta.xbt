@@ -128,6 +128,14 @@ const PersonalArea = ({ color, setColor, setIsAuthenticated }) => {
         });
     }
   }, [local]);
+  useEffect(() => {
+    const currentPath = window.location.pathname;
+    if (currentPath !== "/dashboard/translation") {
+      localStorage.removeItem("balance");
+    } else {
+      navigate("/dashboard/translation");
+    }
+  }, []);
   return (
     <div className="personal_area">
       <Head

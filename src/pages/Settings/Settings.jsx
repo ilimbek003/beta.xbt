@@ -54,7 +54,6 @@ const Settings = ({
   const [imgAddress, setImgAddress] = useState();
   const [modal2fa, setModal2fa] = useState(false);
   const [modal2f, setModal2f] = useState(false);
-
   const [data2fa, setData2fa] = useState(null);
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -140,51 +139,55 @@ const Settings = ({
     }
   };
 
- function photoPassport(event) {
-   const imageFile = event.target.files[0];
-   if (imageFile) {
-     setImageUrlPassport(imageFile);
-   }
- }
-
- function photoAddress(event) {
-   const imageFile = event.target.files[0];
-   if (imageFile) {
-     setImageUrlAddress(imageFile);
-   }
- }
-
-const VerificationChange = async (e) => {
-  e.preventDefault();
-  setLoading(true);
-  try {
-    const formData = new FormData();
-    formData.append("firstname", name);
-    formData.append("lastname", last);
-    formData.append("date_birth", date);
-    formData.append("passport_id", passwordId);
-    formData.append("inn", innData);
-    formData.append("country", countryApp);
-    formData.append("city", city);
-    formData.append("address", address);
-    formData.append("photo_passport", imageUrlPassport);
-    formData.append("photo_address", imageUrlAddress);
-
-    const response = await axios.post(url + `/profile/verification`, formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-        ...headers,
-      },
-    });
-    setLoading(false);
-  } catch (error) {
-    Alert(
-      "error",
-      error.response.data ? `error: ${error.response.data}` : "error"
-    );
-    setLoading(false);
+  function photoPassport(event) {
+    const imageFile = event.target.files[0];
+    if (imageFile) {
+      setImageUrlPassport(imageFile);
+    }
   }
-};
+
+  function photoAddress(event) {
+    const imageFile = event.target.files[0];
+    if (imageFile) {
+      setImageUrlAddress(imageFile);
+    }
+  }
+
+  const VerificationChange = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      const formData = new FormData();
+      formData.append("firstname", name);
+      formData.append("lastname", last);
+      formData.append("date_birth", date);
+      formData.append("passport_id", passwordId);
+      formData.append("inn", innData);
+      formData.append("country", countryApp);
+      formData.append("city", city);
+      formData.append("address", address);
+      formData.append("photo_passport", imageUrlPassport);
+      formData.append("photo_address", imageUrlAddress);
+
+      const response = await axios.post(
+        url + `/profile/verification`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+            ...headers,
+          },
+        }
+      );
+      setLoading(false);
+    } catch (error) {
+      Alert(
+        "error",
+        error.response.data ? `error: ${error.response.data}` : "error"
+      );
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
     if (local) {
@@ -368,183 +371,15 @@ const VerificationChange = async (e) => {
             </div>
           )}
           {account && (
-            <div
-              className="wrapper_account"
-              style={{
-                display: "grig",
-                gridTemplateColumns:
-                  datas_personal[0].verification.value == 2 ||
-                  datas_personal[0].verification.value == 3
-                    ? "1fr"
-                    : "1fr 1fr",
-              }}
-            >
-              <div
-                style={{
-                  display:
-                    datas_personal[0].verification.value == 2 ||
-                    datas_personal[0].verification.value == 3
-                      ? "none"
-                      : "block",
-                }}
-                className="wrapper_set"
-              >
-                <form onSubmit={VerificationChange} className="verification">
-                  <label>Имя</label>
-                  <input
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    type="text"
-                    placeholder="Имя"
-                    required
-                  />
-                  <label>Фамилия</label>
-                  <input
-                    value={last}
-                    onChange={(e) => setLast(e.target.value)}
-                    type="text"
-                    placeholder="Фамилия"
-                    required
-                  />
-                  <label>Дата рождения</label>
-                  <input
-                    id="date_data"
-                    value={date}
-                    onChange={(e) => setDate(e.target.value)}
-                    type="date"
-                    required
-                  />
-                  <label>ID паспорта</label>
-                  <input
-                    value={passwordId}
-                    onChange={(e) => setPasswordId(e.target.value)}
-                    type="text"
-                    placeholder="ID паспорта"
-                    required
-                  />
-                  <label>ИНН</label>
-                  <input
-                    value={innData}
-                    onChange={(e) => setInnData(e.target.value)}
-                    type="number"
-                    placeholder="ИНН"
-                    required
-                  />
-                  <label>Страна</label>
-                  <div className="country">
-                    <div
-                      className="select_input"
-                      onClick={() => setCountryModal(!countryModal)}
-                    ></div>
-                    <input
-                      className="absolute"
-                      value={country}
-                      disabled={true}
-                      onChange={(e) => setCountry(e.target.value)}
-                      type="text"
-                      placeholder="Страна"
-                      required
-                    />
-                    <TiArrowSortedDown
-                      onClick={() => setCountryModal(!countryModal)}
-                      className="icon_arrows_country"
-                      style={{
-                        color: color ? "var(--green)" : "var(--orange)",
-                      }}
-                      size={30}
-                    />
-                    {countryModal && (
-                      <>
-                        <div
-                          onClick={() => setCountryModal(false)}
-                          className="select_country_not"
-                        ></div>
-                        <div className="select_country">
-                          {countryArray[0].map((el) => (
-                            <div
-                              key={el.id}
-                              onClick={() =>
-                                countryFunc(el) || setCountryModal(false)
-                              }
-                              className="box_counrty"
-                            >
-                              <p>{el.name}</p>
-                            </div>
-                          ))}
-                        </div>
-                      </>
-                    )}
-                  </div>
-                  <label>Город</label>
-                  <input
-                    value={city}
-                    onChange={(e) => setCity(e.target.value)}
-                    type="text"
-                    placeholder="Город"
-                    required
-                  />
-                  <label>Адрес</label>
-                  <input
-                    value={address}
-                    onChange={(e) => setAddress(e.target.value)}
-                    type="text"
-                    placeholder="Адрес"
-                    required
-                  />
-                  <div className="image_data">
-                    <label>
-                      {imageUrlPassport ? (
-                        <img
-                          className="img_app"
-                          src={URL.createObjectURL(imageUrlPassport)}
-                          alt=""
-                        />
-                      ) : (
-                        <div className="btn_data">Добавить фото паспорта</div>
-                      )}
-                      <input
-                        type="file"
-                        accept="image/*"
-                        onChange={photoPassport}
-                        style={{ display: "none" }}
-                      />
-                    </label>
-                    <label>
-                      {imageUrlAddress ? (
-                        <img
-                          className="img_app"
-                          src={URL.createObjectURL(imageUrlAddress)}
-                          alt=""
-                        />
-                      ) : (
-                        <div className="btn_data">Добавить фото адреса</div>
-                      )}
-                      <input
-                        type="file"
-                        accept="image/*"
-                        onChange={photoAddress}
-                        style={{ display: "none" }}
-                      />
-                    </label>
-                  </div>
-                  <button
-                    disabled={loading}
-                    onClick={VerificationChange}
-                    className="save"
-                  >
-                    {loading ? <Loading2 /> : "Отправить"}
-                  </button>
-                </form>
-              </div>
+            <div>
               {datas_personal[0].verification.value == 1 ? (
-                <p className="activeited_false">
-                  {datas_personal[0].verification.name}
-                  <ImNotification
-                    className="icon_ver"
-                    color="#e25c5c"
-                    size={100}
-                  />
-                </p>
+                <div>
+                  <iframe
+                    src={"https://api.xbt.kg/ru/sumsub/widget?token=" + local}
+                    allow="camera; microphone; geolocation"
+                    className="iframe-verification"
+                  ></iframe>
+                </div>
               ) : datas_personal[0].verification.value == 2 ? (
                 <p className="activeited_true">
                   {datas_personal[0].verification.name}
@@ -564,14 +399,13 @@ const VerificationChange = async (e) => {
                   />
                 </p>
               ) : datas_personal[0].verification.value == 4 ? (
-                <p className="activeited_not">
-                  {datas_personal[0].verification.name}
-                  <MdOutlineNotInterested
-                    className="icon_ver"
-                    color="red"
-                    size={100}
-                  />
-                </p>
+                <div>
+                  <iframe
+                    src={"https://api.xbt.kg/ru/sumsub/widget?token=" + local}
+                    allow="camera; microphone; geolocation"
+                    className="iframe-verification"
+                  ></iframe>
+                </div>
               ) : (
                 ""
               )}

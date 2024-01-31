@@ -33,9 +33,10 @@ const Withdraw = ({ datas }) => {
               .map((el, index) =>
                 el.can_withdraw == true ? (
                   <div
-                    onClick={() =>
-                      navigate(`/dashboard/translation/${el.currency}`)
-                    }
+                    onClick={() => {
+                      navigate(`/dashboard/translation/${el.currency}`);
+                      localStorage.setItem("balance", el.balance);
+                    }}
                     key={index}
                     className="box"
                   >

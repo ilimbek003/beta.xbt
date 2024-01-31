@@ -448,3 +448,26 @@
     height: 43px;
   }
 }
+.balans-crypty{
+  color: #fff;
+  font-size: 14px;
+  font-weight: 300;
+  margin: 0 0 10px 0;
+}
+.flex-balanse{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.position-lation{
+  position: relative;
+}
+.max-balanse{
+  position: absolute;
+  height: 60%;
+  width: 8%;
+  top: 0;
+  right: 0;
+  padding: 15.5px 0;
+  cursor: pointer;
+}

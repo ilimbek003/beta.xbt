@@ -14,22 +14,7 @@ const Blocks = ({ data, datas }) => {
     setRatesArray(ratesArray);
   }, [datas]);
 
-  function clean(obj) {
-    for (var propName in obj) {
-      if (obj[propName] === null || obj[propName] === undefined) {
-        delete obj[propName];
-      }
-    }
-    return obj
-  }
 
-  function preparePrices(data) {
-    let prices = [{price: '68.25'}]
-    data.forEach((item) => {
-      prices.push({ price: item.price })
-    })
-    return prices;
-  }
 
   const settings = {
     dots: false,

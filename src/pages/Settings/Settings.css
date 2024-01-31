@@ -556,3 +556,11 @@
   background: #4ac49e;
   font-weight: 500;
 }
+.iframe-verification {
+  width: 100%;
+  min-height:100vh;
+  margin-top: 15px;
+  border: 0;
+  border-radius: 5px;
+  overflow: hidden;
+}
