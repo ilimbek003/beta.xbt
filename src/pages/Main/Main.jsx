@@ -26,6 +26,8 @@ const Main = ({ color, reviewData }) => {
       }
     };
 
+    
+
     fetchData();
   }, []);
 
