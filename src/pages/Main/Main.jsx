@@ -50,7 +50,7 @@ const Main = ({ color, reviewData }) => {
     <div className="main">
       <Home data={data} color={color} datas={datas} />
       <Popular data={data} color={color} datas={datas} />
-      <Amazing color={color} />
+      {/* <Amazing color={color} />  */}
       <Stay color={color} />
       <Advantages color={color} />
       {/* <BuyCurrency color={color} /> */}
