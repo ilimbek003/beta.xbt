@@ -16,7 +16,7 @@ const Stay = ({ color }) => {
         const response = await axios.get(url + "/index");
         setStay(response.data.news);
       } catch (error) {
-        console.log("Ошибка:", error);
+        // console.log("Ошибка:", error);
       }
     };
 
@@ -69,7 +69,7 @@ const Stay = ({ color }) => {
         {stay ? (
           <Slider {...settings}>
             {stays.map((el, id) => (
-              <div key={id} className="width">
+              <div key={id} className="width" onClick={() => navigate('/news/' + el.id)}>
                 <div key={id} className="skey_block">
                   <div className="news-photo">
                     <img className="photo" src={el.photo} alt="" />

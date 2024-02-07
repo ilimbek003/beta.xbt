@@ -23,7 +23,7 @@ const Questions = ({ color }) => {
         const response = await axios.get(url + "/faq");
         setFaq(response.data);
       } catch (error) {
-        console.log("Ошибка:", error);
+        // console.log("Ошибка:", error);
       }
     };
 

@@ -56,7 +56,7 @@ const PersonalArea = ({ color, setColor, setIsAuthenticated }) => {
           setLoading(false);
         })
         .catch((error) => {
-          console.error("Error:", error);
+          // console.error("Error:", error);
         });
     }
   }, [local]);
@@ -70,7 +70,7 @@ const PersonalArea = ({ color, setColor, setIsAuthenticated }) => {
           setLoading(false);
         })
         .catch((error) => {
-          console.error("Error:", error);
+          // console.error("Error:", error);
         });
     }
   }
@@ -80,11 +80,11 @@ const PersonalArea = ({ color, setColor, setIsAuthenticated }) => {
       axios
         .get(url + "/profile/action-log", { headers })
         .then((response) => {
-          console.log(response.data);
+          // console.log(response.data);
           setLog(response.data.action);
         })
         .catch((error) => {
-          console.error("Error:", error);
+          // console.error("Error:", error);
           setHome(true);
         });
     }
@@ -98,7 +98,7 @@ const PersonalArea = ({ color, setColor, setIsAuthenticated }) => {
           setPersonal(response.data);
         })
         .catch((error) => {
-          console.error("Error:", error);
+          // console.error("Error:", error);
         });
     }
   }, [local]);
@@ -111,7 +111,7 @@ const PersonalArea = ({ color, setColor, setIsAuthenticated }) => {
           setPersonal(response.data);
         })
         .catch((error) => {
-          console.error("Error:", error);
+          // console.error("Error:", error);
         });
     }
   }
@@ -124,7 +124,7 @@ const PersonalArea = ({ color, setColor, setIsAuthenticated }) => {
           setLog(response.data.action);
         })
         .catch((error) => {
-          console.error("Error:", error);
+          // console.error("Error:", error);
         });
     }
   }, [local]);

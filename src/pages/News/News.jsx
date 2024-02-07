@@ -19,7 +19,7 @@ const News = ({ color }) => {
         const response = await axios.get(url + "/news");
         setNews(response.data);
       } catch (error) {
-        console.log("Ошибка:", error);
+        // console.log("Ошибка:", error);
       }
     };
 

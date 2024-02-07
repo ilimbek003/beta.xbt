@@ -53,9 +53,7 @@ const Advantages = () => {
   };
   return (
     <div id="advantages">
-      <h1 className="advantages_h1">
-        Откройте для себя преимущества сотрудничества с нами.
-      </h1>
+      <h1 className="advantages_h1">Откройте для себя преимущества сотрудничества с нами</h1>
       <div className="shadow-one" />
       <div>
         <Slider {...settingsLeft}>

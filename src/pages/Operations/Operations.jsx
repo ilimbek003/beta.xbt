@@ -16,7 +16,7 @@ const Operations = () => {
   const [operation, setOperation] = useState([]);
   const oper = operation ? operation : [];
   const datas = Object.values(oper).map((data) => data);
-  console.log(datas);
+  // console.log(datas);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -38,7 +38,7 @@ const Operations = () => {
           setLoading(false);
         })
         .catch((error) => {
-          console.error("Error:", error);
+          // console.error("Error:", error);
         });
     }
   }, [local]);

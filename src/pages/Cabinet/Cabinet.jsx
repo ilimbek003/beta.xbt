@@ -157,11 +157,10 @@ const Cabinet = ({ color, datas, loading, datas_personal, datas_log }) => {
               <div className="save_box one">
                 {datas_personal[0] ? (
                   <div className="save_box_user">
-                    <img src={datas_personal[0].avatar} alt="" />
+                    <img src={datas_personal[0].avatar} alt={datas_personal[0].avatar} />
                     <div>
                       <h1>
-                        {datas_personal[0].firstname}{" "}
-                        {datas_personal[0].lastname}
+                        {datas_personal[0].firstname +' '+ datas_personal[0].lastname}
                       </h1>
                       {datas_personal[0].verification.value == 1 ? (
                         <p className="activeited_false">

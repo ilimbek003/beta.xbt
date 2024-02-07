@@ -22,7 +22,7 @@ const Main = ({ color, reviewData }) => {
         const response = await axios.get(url + "/index");
         setPopular(response.data.currencies);
       } catch (error) {
-        console.log("Ошибка:", error);
+        // console.log("Ошибка:", error);
       }
     };
 
@@ -38,7 +38,7 @@ const Main = ({ color, reviewData }) => {
         setCount(response.data.currencies);
       })
       .catch((error) => {
-        console.error("Error:", error);
+        // console.error("Error:", error);
       });
   }, []);
 
@@ -54,7 +54,7 @@ const Main = ({ color, reviewData }) => {
       <Stay color={color} />
       <Advantages color={color} />
       {/* <BuyCurrency color={color} /> */}
-      <TheySay color={color} reviewData={reviewData} />
+      {/* <TheySay color={color} reviewData={reviewData} /> */}
       <Questions color={color} />
     </div>
   );

@@ -17,7 +17,7 @@ const NewPassword = () => {
     event.preventDefault();
 
     if (formData.new_password !== formData.confirm_password) {
-      alert("Новый пароль и подтверждение пароля должны совпадать.");
+      alert("Пароли не совпадают");
       return;
     }
     const dataToUpdate = { password: formData.new_password };
@@ -25,13 +25,13 @@ const NewPassword = () => {
       .patch(url + "", dataToUpdate)
       .then((response) => {
         if (response.status === 200) {
-          alert("Пароль успешно изменен.");
+          alert("Пароль успешно изменен");
         } else {
-          alert("Не удалось изменить пароль. Проверьте правильность данных.");
+          alert("Не удалось изменить пароль");
         }
       })
       .catch((error) => {
-        console.error("Ошибка при выполнении запроса:", error);
+        // console.error("Ошибка при выполнении запроса:", error);
       });
   };
 

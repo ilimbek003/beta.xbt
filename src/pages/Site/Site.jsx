@@ -31,7 +31,7 @@ const Site = ({ setColor, color, isAuthenticated, setIsAuthenticated }) => {
         setLoading(false);
       })
       .catch((error) => {
-        console.error("Error:", error);
+        // console.error("Error:", error);
       });
   }, []);
 

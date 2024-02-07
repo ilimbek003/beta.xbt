@@ -52,7 +52,7 @@ const Protocol = ({ currencies, balanceTether }) => {
           setData(response.data.parameters);
         })
         .catch((error) => {
-          console.error("Error:", error);
+          // console.error("Error:", error);
         });
     }
   }, [name, local]);

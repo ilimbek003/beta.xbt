@@ -6,6 +6,7 @@ import { url } from "../../api";
 import { useNavigate, useParams } from "react-router-dom";
 import Loading from "../../components/IU/loading/loading";
 import Loading2 from "../../components/IU/loading2/loading2";
+import { FiCopy } from "react-icons/fi";
 
 const data = [
   {
@@ -97,7 +98,7 @@ const Translation = ({ datas_tran, color, balanceTether }) => {
       const response = await axios.post(url + "/cashout/create", newData, {
         headers,
       });
-      console.log(response);
+      // console.log(response);
       setDatas(response.data);
       setModal(true);
     } catch (error) {
@@ -118,7 +119,7 @@ const Translation = ({ datas_tran, color, balanceTether }) => {
           { headers: headers }
         )
         .then((response) => {
-          console.log(response);
+          // console.log(response);
           setModal(false);
           Alert("success", "успешно!");
           if (response.data.response === true) {
@@ -244,7 +245,7 @@ const Translation = ({ datas_tran, color, balanceTether }) => {
                 </div>
                 <div className="flex-balanse">
                   <label>Сумма отправления</label>
-                  <p className="balans-crypty">{balance}</p>
+                  <p className="balans-crypty">{balance +' '+ currancy}</p>
                 </div>
                 <div className="position-lation">
                   <input
@@ -266,14 +267,23 @@ const Translation = ({ datas_tran, color, balanceTether }) => {
                   placeholder="Cумма к получению"
                 />
                 <label>Номер {tran.currency} кошелька</label>
-                <input
-                  value={networkUse}
-                  onChange={(e) => setNetworkUse(e.target.value)}
-                  type="text"
-                  placeholder={`Введите номер ${
-                    dataCar.network ? dataCar.network : datasCur[0].network
-                  } кошелька *`}
-                />
+                <div className="position-lation">
+                  <input
+                    id="crypto-address"
+                    value={networkUse}
+                    onChange={(e) => setNetworkUse(e.target.value)}
+                    type="text"
+                    placeholder={`Введите номер ${
+                      dataCar.network ? dataCar.network : datasCur[0].network
+                    } кошелька *`}
+                  />
+                  <div className="max-balanse" onClick={async () => {
+                    const text = await navigator.clipboard.readText()
+                    document.getElementById('crypto-address').value = text
+                  }}>
+                    <FiCopy style={{color: "#fff"}} size={20} />
+                  </div>
+                </div>
                 <button
                   disabled={loading}
                   onClick={withdrawFunc}

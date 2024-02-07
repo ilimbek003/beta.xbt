@@ -31,7 +31,7 @@ const BuyCurrency = ({ color }) => {
         const response = await axios.get(url + "/currencies");
         setBuy(response.data.currencies);
       } catch (error) {
-        console.log("Ошибка:", error);
+        // console.log("Ошибка:", error);
       }
     };
 

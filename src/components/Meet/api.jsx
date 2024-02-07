@@ -5,10 +5,10 @@ const [responseData, setResponseData] = useState([]);
 
 const fetchData = async () => {
   try {
-    const response = await axios.get("https://api.bitok.kg/ru/index");
-    console.log(response.data);
+    const response = await axios.get("https://api.xbt.kg/ru/index");
+    // console.log(response.data);
   } catch (error) {
-    console.error(error);
+    // console.error(error);
   }
 };
 

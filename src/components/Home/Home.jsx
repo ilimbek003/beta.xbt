@@ -1,29 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./Home.css";
-import bitcoin from "../../img/bitcoin.svg";
 import Blocks from "../Blocks/Blocks";
-import bg2 from "../../img/BG_home2.svg";
 import { NavLink } from "react-router-dom";
 
 const Home = ({ color, data, datas }) => {
   return (
-    <div
-      style={{
-        background: `url(${bg2}) no-repeat center / cover`,
-      }}
-      className="home"
-    >
+    <div className="home">
       <div className="container">
         <div className="wrapper">
           <h1>
-            <span
-              style={{ color: color ? "var(--green)" : "var(--orange)" }}
-              className="first"
-            >
-              XBT.KG
-            </span>
-            - идеальный способ купить или продать криптовалюту не выходя из
-            дома.
+            <span style={{ color: color ? "var(--green)" : "var(--orange)", paddingRight: '8px' }} className="first">XBT.KG</span>
+            - идеальный способ купить или продать криптовалюту не выходя из дома
           </h1>
           <p>
             Прозрачные комиссии, наличие лицензии, большие резервы и отличная

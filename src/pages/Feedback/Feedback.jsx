@@ -44,7 +44,7 @@ const Feedback = ({ loading, color, data }) => {
           setPersonal(response.data);
         })
         .catch((error) => {
-          console.error("Error:", error);
+          // console.error("Error:", error);
         });
     }
   }, [local]);

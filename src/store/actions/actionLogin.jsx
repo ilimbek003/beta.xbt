@@ -6,7 +6,7 @@ export const POST_LOGIN = "POST_LOGIN";
 
 export const loginAction = (codeData) => async (dispatch) => {
     const response = await axios.post(url + "/auth/login", codeData);
-    console.log(response)
+    // console.log(response)
     try {
         dispatch({
             type: "CREATE_LOGIN",

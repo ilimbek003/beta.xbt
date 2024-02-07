@@ -20,9 +20,7 @@ const FAQ = ({ color }) => {
       try {
         const response = await axios.get(url + "/faq");
         setFaq(response.data);
-      } catch (error) {
-        console.log("Ошибка:", error);
-      }
+      } catch (error) {}
     };
     fetchData();
   }, []);
@@ -86,7 +84,7 @@ const FAQ = ({ color }) => {
             }
             className={one ? "btn" : "btn active"}
           >
-            Общие вопросы
+            Общие
           </button>
           <button
             style={{
@@ -105,26 +103,7 @@ const FAQ = ({ color }) => {
             }
             className={two ? "btn" : "btn active"}
           >
-            Финансовые вапросы
-          </button>
-          <button
-            style={{
-              background: three
-                ? color
-                  ? "var(--green)"
-                  : "var(--orange)"
-                : "linear-gradient(0deg, #171822, #171822), linear-gradient(0deg, #9e9ea5, #9e9ea5)",
-            }}
-            onClick={() =>
-              setOne(false) ||
-              setTwo(false) ||
-              setThree(true) ||
-              setDataFaq(accumulatedData[2]) ||
-              toggle()
-            }
-            className={three ? "btn" : "btn active"}
-          >
-            Маркетплейcт
+            Финансы
           </button>
         </div>
         <div className="accordion">

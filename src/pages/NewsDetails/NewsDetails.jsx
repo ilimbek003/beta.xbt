@@ -10,7 +10,7 @@ import Loading from "../../components/IU/loading/loading";
 const NewsDetails = () => {
   const [news, setNews] = useState();
   const { id } = useParams();
-  console.log(news);
+  // console.log(news);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,7 +18,7 @@ const NewsDetails = () => {
         const response = await axios.get(url + `/news/${id}`);
         setNews(response.data.detail);
       } catch (error) {
-        console.log("Ошибка:", error);
+        // console.log("Ошибка:", error);
       }
     };
 

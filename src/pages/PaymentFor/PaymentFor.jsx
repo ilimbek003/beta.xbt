@@ -80,7 +80,7 @@ const PaymentFor = () => {
           setList(response.data);
         })
         .catch((error) => {
-          console.error("Error:", error);
+          // console.error("Error:", error);
         });
     }
   }, [local]);

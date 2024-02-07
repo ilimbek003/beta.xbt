@@ -10,9 +10,9 @@ import { MdOutlineNotInterested } from "react-icons/md";
 import { url } from "../../api";
 import axios from "axios";
 import Loading from "../../components/IU/loading/loading";
+import Loading2 from "../../components/IU/loading2/loading2";
 import turn from "../../img/turn.svg";
 import { Alert } from "../../components/IU/alert/alert";
-import Loading2 from "../../components/IU/loading2/loading2";
 import Authenticator from "../Authenticator/Authenticator";
 
 const Settings = ({
@@ -49,6 +49,7 @@ const Settings = ({
   const [countryData, setCountryData] = useState([]);
   const countryArray = Object.values(countryData).map((data) => data);
   const [loading, setLoading] = useState(false);
+  const [loading2, setLoading2] = useState(false);
   const [country, setCountry] = useState("");
   const [imgPassport, setImgPassport] = useState();
   const [imgAddress, setImgAddress] = useState();
@@ -197,10 +198,14 @@ const Settings = ({
           setCountryData(response.data);
         })
         .catch((error) => {
-          console.error("Error:", error);
+          // console.error("Error:", error);
         });
     }
   }, [local]);
+
+  useEffect(() => {
+    setLoading(true);
+  }, [])
 
   function countryFunc(count) {
     setCountry(count.name);
@@ -220,7 +225,7 @@ const Settings = ({
         setData2fa(response.data.security);
       }
     } catch (error) {
-      console.error("Ошибка при выполнении запроса:", error);
+      // console.error("Ошибка при выполнении запроса:", error);
       setLoading(false);
       setData2fa("Ошибка при выполнении запроса");
     }
@@ -372,15 +377,16 @@ const Settings = ({
           )}
           {account && (
             <div>
-              {datas_personal[0].verification.value == 1 ? (
-                <div>
-                  <iframe
-                    src={"https://api.xbt.kg/ru/sumsub/widget?token=" + local}
-                    allow="camera; microphone; geolocation"
-                    className="iframe-verification"
-                  ></iframe>
-                </div>
-              ) : datas_personal[0].verification.value == 2 ? (
+              {
+                datas_personal[0].verification.value != 2 && loading ? (
+                  <div className="loading_div">
+                    <Loading />
+                  </div>
+                ) : (
+                  ""
+                )
+              }
+              {datas_personal[0].verification.value == 2 ? (
                 <p className="activeited_true">
                   {datas_personal[0].verification.name}
                   <BsCheckCircle
@@ -389,25 +395,18 @@ const Settings = ({
                     size={100}
                   />
                 </p>
-              ) : datas_personal[0].verification.value == 3 ? (
-                <p className="activeited_norm">
-                  {datas_personal[0].verification.name}
-                  <BsClockHistory
-                    className="icon_ver"
-                    color="yellow"
-                    size={100}
-                  />
-                </p>
-              ) : datas_personal[0].verification.value == 4 ? (
+              ) : datas_personal[0].verification.value == 1 || datas_personal[0].verification.value == 3 || datas_personal[0].verification.value == 4 ? (
                 <div>
                   <iframe
                     src={"https://api.xbt.kg/ru/sumsub/widget?token=" + local}
                     allow="camera; microphone; geolocation"
                     className="iframe-verification"
+                    style={{ display: !loading && "block"}}
+                    onLoad={() => { setLoading(false) }}
                   ></iframe>
                 </div>
               ) : (
-                ""
+                ''
               )}
             </div>
           )}

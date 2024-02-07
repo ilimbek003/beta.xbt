@@ -55,7 +55,7 @@ const TopUp = ({ color, currencies }) => {
           setLoading(false);
         })
         .catch((error) => {
-          console.error("Error:", error);
+          // console.error("Error:", error);
         });
     }
   }, [local]);
@@ -73,7 +73,7 @@ const TopUp = ({ color, currencies }) => {
           setLoadingCate(false);
         })
         .catch((error) => {
-          console.error("Error:", error);
+          // console.error("Error:", error);
         });
     }
   }
@@ -90,7 +90,7 @@ const TopUp = ({ color, currencies }) => {
         setDepozit(response.data);
         setModal(true);
       } catch (error) {
-        console.error("Error:", error);
+        // console.error("Error:", error);
       }
     }
   }
@@ -105,7 +105,7 @@ const TopUp = ({ color, currencies }) => {
       setOpenModal(dataDepozit);
     }
   }, [nikcurrancy]);
-  console.log(currencies);
+  // console.log(currencies);
 
   useEffect(() => {
     if (openModal[0]) {
@@ -129,7 +129,7 @@ const TopUp = ({ color, currencies }) => {
           setOpen(response.data.response);
         })
         .catch((error) => {
-          console.error("Error:", error);
+          // console.error("Error:", error);
           Alert("error", error.response.data.messages);
           setLoadingForm(true);
         });
