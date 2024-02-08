@@ -98,7 +98,6 @@ const Translation = ({ datas_tran, color, balanceTether }) => {
       const response = await axios.post(url + "/cashout/create", newData, {
         headers,
       });
-      // console.log(response);
       setDatas(response.data);
       setModal(true);
     } catch (error) {
@@ -119,7 +118,6 @@ const Translation = ({ datas_tran, color, balanceTether }) => {
           { headers: headers }
         )
         .then((response) => {
-          // console.log(response);
           setModal(false);
           Alert("success", "успешно!");
           if (response.data.response === true) {

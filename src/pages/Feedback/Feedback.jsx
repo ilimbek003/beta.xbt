@@ -102,7 +102,7 @@ const Feedback = ({ loading, color, data }) => {
               ))}
             </div>
           ) : (
-            <Loading />
+          <p style={{textAlign:"center" ,color:"#fff", fontSize:"24px", fontWeight:"400"}}>Нет Отзывов</p>
           )}
           {modal && (
             <div className="modal_feedback">

@@ -3,34 +3,23 @@ import "./Settings.css";
 import { FaPen } from "react-icons/fa";
 import password from "../../img/password.svg";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { TiArrowSortedDown } from "react-icons/ti";
-import { BsClockHistory, BsCheckCircle } from "react-icons/bs";
-import { ImNotification } from "react-icons/im";
-import { MdOutlineNotInterested } from "react-icons/md";
+import { BsCheckCircle } from "react-icons/bs";
 import { url } from "../../api";
 import axios from "axios";
 import Loading from "../../components/IU/loading/loading";
-import Loading2 from "../../components/IU/loading2/loading2";
 import turn from "../../img/turn.svg";
 import { Alert } from "../../components/IU/alert/alert";
 import Authenticator from "../Authenticator/Authenticator";
 
 const Settings = ({
-  color,
   datas_personal,
   personalChange,
-  personal,
-  setPersonal,
   is2faEnabled,
+  setAccount,
+  account,
+  setProfile,
+  profile,
 }) => {
-  const [countryModal, setCountryModal] = useState(false);
-  const [name, setName] = useState("");
-  const [last, setLast] = useState("");
-  const [date, setDate] = useState("");
-  const [passwordId, setPasswordId] = useState("");
-  const [innData, setInnData] = useState("");
-  const [city, setCity] = useState("");
-  const [address, setAddress] = useState("");
   const [countryApp, setCountryApp] = useState("");
   const [lastname, setLastname] = useState("");
   const [firstname, setFirstname] = useState("");
@@ -40,19 +29,11 @@ const Settings = ({
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [visible1, setVisible1] = useState(false);
-  const [imageUrlPassport, setImageUrlPassport] = useState(null);
-  const [imageUrlAddress, setImageUrlAddress] = useState(null);
   const [selectedImage, setSelectedImage] = useState(null);
-  const [profile, setProfile] = useState(true);
-  const [account, setAccount] = useState(false);
   const [safety, setSafety] = useState(false);
   const [countryData, setCountryData] = useState([]);
-  const countryArray = Object.values(countryData).map((data) => data);
   const [loading, setLoading] = useState(false);
-  const [loading2, setLoading2] = useState(false);
   const [country, setCountry] = useState("");
-  const [imgPassport, setImgPassport] = useState();
-  const [imgAddress, setImgAddress] = useState();
   const [modal2fa, setModal2fa] = useState(false);
   const [modal2f, setModal2f] = useState(false);
   const [data2fa, setData2fa] = useState(null);
@@ -62,7 +43,6 @@ const Settings = ({
       setLocal(token);
     }
   }, []);
-
   const headers = {
     Authorization: `Bearer ${local}`,
   };
@@ -139,57 +119,6 @@ const Settings = ({
       Alert("error", error.response.data.messages);
     }
   };
-
-  function photoPassport(event) {
-    const imageFile = event.target.files[0];
-    if (imageFile) {
-      setImageUrlPassport(imageFile);
-    }
-  }
-
-  function photoAddress(event) {
-    const imageFile = event.target.files[0];
-    if (imageFile) {
-      setImageUrlAddress(imageFile);
-    }
-  }
-
-  const VerificationChange = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    try {
-      const formData = new FormData();
-      formData.append("firstname", name);
-      formData.append("lastname", last);
-      formData.append("date_birth", date);
-      formData.append("passport_id", passwordId);
-      formData.append("inn", innData);
-      formData.append("country", countryApp);
-      formData.append("city", city);
-      formData.append("address", address);
-      formData.append("photo_passport", imageUrlPassport);
-      formData.append("photo_address", imageUrlAddress);
-
-      const response = await axios.post(
-        url + `/profile/verification`,
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-            ...headers,
-          },
-        }
-      );
-      setLoading(false);
-    } catch (error) {
-      Alert(
-        "error",
-        error.response.data ? `error: ${error.response.data}` : "error"
-      );
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
     if (local) {
       axios
@@ -197,21 +126,16 @@ const Settings = ({
         .then((response) => {
           setCountryData(response.data);
         })
-        .catch((error) => {
-          // console.error("Error:", error);
-        });
+        .catch();
     }
   }, [local]);
-
   useEffect(() => {
     setLoading(true);
-  }, [])
-
+  }, []);
   function countryFunc(count) {
     setCountry(count.name);
     setCountryApp(count.code);
   }
-
   const handle2faGenerate = async () => {
     try {
       setLoading(true);
@@ -225,7 +149,6 @@ const Settings = ({
         setData2fa(response.data.security);
       }
     } catch (error) {
-      // console.error("Ошибка при выполнении запроса:", error);
       setLoading(false);
       setData2fa("Ошибка при выполнении запроса");
     }
@@ -377,15 +300,13 @@ const Settings = ({
           )}
           {account && (
             <div>
-              {
-                datas_personal[0].verification.value != 2 && loading ? (
-                  <div className="loading_div">
-                    <Loading />
-                  </div>
-                ) : (
-                  ""
-                )
-              }
+              {datas_personal[0].verification.value != 2 && loading ? (
+                <div className="loading_div">
+                  <Loading />
+                </div>
+              ) : (
+                ""
+              )}
               {datas_personal[0].verification.value == 2 ? (
                 <p className="activeited_true">
                   {datas_personal[0].verification.name}
@@ -395,18 +316,22 @@ const Settings = ({
                     size={100}
                   />
                 </p>
-              ) : datas_personal[0].verification.value == 1 || datas_personal[0].verification.value == 3 || datas_personal[0].verification.value == 4 ? (
+              ) : datas_personal[0].verification.value == 1 ||
+                datas_personal[0].verification.value == 3 ||
+                datas_personal[0].verification.value == 4 ? (
                 <div>
                   <iframe
                     src={"https://api.xbt.kg/ru/sumsub/widget?token=" + local}
                     allow="camera; microphone; geolocation"
                     className="iframe-verification"
-                    style={{ display: !loading && "block"}}
-                    onLoad={() => { setLoading(false) }}
+                    style={{ display: !loading && "block" }}
+                    onLoad={() => {
+                      setLoading(false);
+                    }}
                   ></iframe>
                 </div>
               ) : (
-                ''
+                ""
               )}
             </div>
           )}

@@ -2,14 +2,18 @@ import react, { useState, useEffect } from "react";
 import "./SellCryptocurrency.css";
 import { BiSearch } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
-import { LineChart, Line } from "recharts";
-import Loading from "../../components/IU/loading/loading";
 
-const SellCryptocurrency = ({ datas }) => {
+const SellCryptocurrency = ({
+  datas,
+  setAccount,
+  account,
+  setProfile,
+  datas_personal,
+}) => {
   const navigate = useNavigate();
   const [value, setValue] = useState("");
   const [ratesArray, setRatesArray] = useState([]);
-
+  const verification = datas_personal[0]?.verification;
   useEffect(() => {
     const ratesArray = datas.map((el) => ({
       price: el.rates[0]?.price || 0,
@@ -69,9 +73,20 @@ const SellCryptocurrency = ({ datas }) => {
                   <div className="with_bys">
                     <button
                       onClick={() =>
-                        navigate(
-                          `/dashboard/sell-cryptocurrency/${el.currency}`
-                        )
+                        verification?.value == 1
+                          ? navigate("/dashboard/settings") ||
+                            setAccount(!account)
+                          : null || verification?.value == 2
+                          ? navigate(
+                              `/dashboard/sell-cryptocurrency/${el.currency}`
+                            )
+                          : null || verification?.value == 3
+                          ? navigate("/dashboard/settings") ||
+                            setAccount(!account) ||
+                            setProfile(false)
+                          : null || verification?.value == 4
+                          ? navigate("/dashboard/settings")
+                          : null || setAccount(!account) || setProfile(false)
                       }
                     >
                       Продать

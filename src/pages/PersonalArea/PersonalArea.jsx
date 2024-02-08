@@ -31,22 +31,21 @@ const PersonalArea = ({ color, setColor, setIsAuthenticated }) => {
   const datas_personal = Object.values(personal).map((data) => data);
   const is2faEnabled =
     personal && personal.profile && personal.profile.security["2fa"];
-
+  const [account, setAccount] = useState(false);
+  const [profile, setProfile] = useState(true);
+  console.log(profile);
   useEffect(() => {
     document.title = "XBT - Покупка. Продажа. Обмен криптовалюты";
   }, []);
-
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
       setLocal(token);
     }
   }, []);
-
   const headers = {
     Authorization: `Bearer ${local}`,
   };
-
   useEffect(() => {
     if (local) {
       axios
@@ -55,12 +54,9 @@ const PersonalArea = ({ color, setColor, setIsAuthenticated }) => {
           setCount(response.data.currencies);
           setLoading(false);
         })
-        .catch((error) => {
-          // console.error("Error:", error);
-        });
+        .catch();
     }
   }, [local]);
-
   function balanceTether() {
     if (local) {
       axios
@@ -69,27 +65,21 @@ const PersonalArea = ({ color, setColor, setIsAuthenticated }) => {
           setCount(response.data.currencies);
           setLoading(false);
         })
-        .catch((error) => {
-          // console.error("Error:", error);
-        });
+        .catch((error) => {});
     }
   }
-
   useEffect(() => {
     if (local) {
       axios
         .get(url + "/profile/action-log", { headers })
         .then((response) => {
-          // console.log(response.data);
           setLog(response.data.action);
         })
         .catch((error) => {
-          // console.error("Error:", error);
           setHome(true);
         });
     }
   }, [local]);
-
   useEffect(() => {
     if (local) {
       axios
@@ -97,12 +87,9 @@ const PersonalArea = ({ color, setColor, setIsAuthenticated }) => {
         .then((response) => {
           setPersonal(response.data);
         })
-        .catch((error) => {
-          // console.error("Error:", error);
-        });
+        .catch();
     }
   }, [local]);
-
   function personalChange() {
     if (local) {
       axios
@@ -110,12 +97,9 @@ const PersonalArea = ({ color, setColor, setIsAuthenticated }) => {
         .then((response) => {
           setPersonal(response.data);
         })
-        .catch((error) => {
-          // console.error("Error:", error);
-        });
+        .catch();
     }
   }
-
   useEffect(() => {
     if (local) {
       axios
@@ -123,9 +107,7 @@ const PersonalArea = ({ color, setColor, setIsAuthenticated }) => {
         .then((response) => {
           setLog(response.data.action);
         })
-        .catch((error) => {
-          // console.error("Error:", error);
-        });
+        .catch();
     }
   }, [local]);
   useEffect(() => {
@@ -174,10 +156,26 @@ const PersonalArea = ({ color, setColor, setIsAuthenticated }) => {
               personalChange={personalChange}
               personal={personal}
               setPersonal={setPersonal}
+              setAccount={setAccount}
+              account={account}
+              setProfile={setProfile}
+              profile={profile}
             />
           }
         />
-        <Route path="translation" element={<Withdraw datas={datas} />} />
+        <Route
+          path="translation"
+          element={
+            <Withdraw
+              datas={datas}
+              datas_personal={datas_personal}
+              setAccount={setAccount}
+              account={account}
+              setProfile={setProfile}
+              profile={profile}
+            />
+          }
+        />
         <Route
           path="translation/:currancy"
           element={
@@ -194,7 +192,15 @@ const PersonalArea = ({ color, setColor, setIsAuthenticated }) => {
         <Route path="payment-for-services" element={<PaymentFor />} />
         <Route
           path="buy-cryptocurrency"
-          element={<BuyCryptocurrency datas={datas} />}
+          element={
+            <BuyCryptocurrency
+              datas={datas}
+              setAccount={setAccount}
+              account={account}
+              setProfile={setProfile}
+              datas_personal={datas_personal}
+            />
+          }
         />
         <Route
           path="buy-cryptocurrency/:id"
@@ -204,7 +210,15 @@ const PersonalArea = ({ color, setColor, setIsAuthenticated }) => {
         />
         <Route
           path="sell-cryptocurrency"
-          element={<SellCryptocurrency datas={datas} />}
+          element={
+            <SellCryptocurrency
+              datas={datas}
+              setAccount={setAccount}
+              account={account}
+              setProfile={setProfile}
+              datas_personal={datas_personal}
+            />
+          }
         />
         <Route
           path="sell-cryptocurrency/:name"

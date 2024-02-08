@@ -14,7 +14,6 @@ const FAQ = ({ color }) => {
   const [selected, setSelected] = useState(null);
   const [dataFaq, setDataFaq] = useState([]);
   const [faq, setFaq] = useState([]);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -37,7 +36,18 @@ const FAQ = ({ color }) => {
       }
     }
   }
+  const accumulatedNames = [];
 
+  for (const key in faq) {
+    if (faq.hasOwnProperty(key)) {
+      const innerObject = faq[key];
+      for (const innerKey in innerObject) {
+        if (innerObject.hasOwnProperty(innerKey)) {
+          accumulatedNames.push(innerObject[innerKey]);
+        }
+      }
+    }
+  }
   setTimeout(() => {
     if (one) {
       setDataFaq(accumulatedData[0]);
@@ -52,7 +62,7 @@ const FAQ = ({ color }) => {
   useEffect(() => {
     document.title = "FAQ";
   }, []);
-  
+
   return (
     <div className="faq">
       <div className="container">
@@ -67,44 +77,52 @@ const FAQ = ({ color }) => {
           которые часто задают
         </h1>
         <div className="buttons_category">
-          <button
-            style={{
-              background: one
-                ? color
-                  ? "var(--green)"
-                  : "var(--orange)"
-                : "linear-gradient(0deg, #171822, #171822), linear-gradient(0deg, #9e9ea5, #9e9ea5)",
-            }}
-            onClick={() =>
-              setOne(true) ||
-              setTwo(false) ||
-              setThree(false) ||
-              setDataFaq(accumulatedData[0]) ||
-              toggle()
-            }
-            className={one ? "btn" : "btn active"}
-          >
-            Общие
-          </button>
-          <button
-            style={{
-              background: two
-                ? color
-                  ? "var(--green)"
-                  : "var(--orange)"
-                : "linear-gradient(0deg, #171822, #171822), linear-gradient(0deg, #9e9ea5, #9e9ea5)",
-            }}
-            onClick={() =>
-              setOne(false) ||
-              setTwo(true) ||
-              setThree(false) ||
-              setDataFaq(accumulatedData[1]) ||
-              toggle()
-            }
-            className={two ? "btn" : "btn active"}
-          >
-            Финансы
-          </button>
+          {accumulatedNames[0]?.slice(0, 1).map((el) => (
+            <div>
+              <button
+                style={{
+                  background: one
+                    ? color
+                      ? "var(--green)"
+                      : "var(--orange)"
+                    : "linear-gradient(0deg, #171822, #171822), linear-gradient(0deg, #9e9ea5, #9e9ea5)",
+                }}
+                onClick={() =>
+                  setOne(true) ||
+                  setTwo(false) ||
+                  setThree(false) ||
+                  setDataFaq(accumulatedData[0]) ||
+                  toggle()
+                }
+                className={one ? "btn" : "btn active"}
+              >
+                {el.name}
+              </button>
+            </div>
+          ))}
+          {accumulatedNames[1]?.slice(0, 1).map((el) => (
+            <div>
+              <button
+                style={{
+                  background: two
+                    ? color
+                      ? "var(--green)"
+                      : "var(--orange)"
+                    : "linear-gradient(0deg, #171822, #171822), linear-gradient(0deg, #9e9ea5, #9e9ea5)",
+                }}
+                onClick={() =>
+                  setOne(false) ||
+                  setTwo(true) ||
+                  setThree(false) ||
+                  setDataFaq(accumulatedData[1]) ||
+                  toggle()
+                }
+                className={two ? "btn" : "btn active"}
+              >
+                {el.name}
+              </button>
+            </div>
+          ))}
         </div>
         <div className="accordion">
           {dataFaq ? (

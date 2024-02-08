@@ -4,9 +4,16 @@ import { BiSearch } from "react-icons/bi";
 import Loading from "../../components/IU/loading/loading";
 import { useNavigate } from "react-router-dom";
 
-const Withdraw = ({ datas }) => {
+const Withdraw = ({
+  datas,
+  datas_personal,
+  setAccount,
+  account,
+  setProfile,
+}) => {
   const [value, setValue] = useState("");
   const navigate = useNavigate();
+  const verification = datas_personal[0]?.verification;
 
   return (
     <div className="withdraw">
@@ -33,10 +40,25 @@ const Withdraw = ({ datas }) => {
               .map((el, index) =>
                 el.can_withdraw == true ? (
                   <div
-                    onClick={() => {
-                      navigate(`/dashboard/translation/${el.currency}`);
-                      localStorage.setItem("balance", el.balance);
-                    }}
+                    // onClick={() =>
+                    //   verification?.value == 1
+                    //     ? navigate("/dashboard/settings") ||
+                    //       setAccount(!account)
+                    //     : null || verification?.value == 2
+                    //     ? navigate(`/dashboard/translation/${el.currency}`) ||
+                    //       localStorage.setItem("balance", el.balance)
+                    //     : null || verification?.value == 3
+                    //     ? navigate("/dashboard/settings") ||
+                    //       setAccount(!account) ||
+                    //       setProfile(false)
+                    //     : null || verification?.value == 4
+                    //     ? navigate("/dashboard/settings")
+                    //     : null || setAccount(!account) || setProfile(false)
+                    // }
+                    onClick={() =>
+                      navigate(`/dashboard/translation/${el.currency}`) ||
+                      localStorage.setItem("balance", el.balance)
+                    }
                     key={index}
                     className="box"
                   >
