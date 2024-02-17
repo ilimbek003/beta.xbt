@@ -16,18 +16,20 @@ const Home = ({ color, data, datas }) => {
             Прозрачные комиссии, наличие лицензии, большие резервы и отличная
             репутация гарантируют успех ваших обменных операций!
           </p>
-          <NavLink to="/register-personal">
-            <button
-              style={{
-                background: color ? "var(--green)" : "var(--orange)",
-              }}
-              className="btn"
-            >
-              Присоединиться к XBT
-            </button>
-          </NavLink>
+          <div className="home-button-wrap">
+            <NavLink to="/register-personal">
+              <button
+                style={{
+                  background: color ? "var(--green)" : "var(--orange)",
+                }}
+                className="btn"
+              >
+                Присоединиться к XBT
+              </button>
+            </NavLink>
+            <NavLink to="/login" className="button outline home-login-button">Войти в личный кабинет</NavLink>
+          </div>
         </div>
-        <div className="wrapper2"></div>
       </div>
       <div className="container_block">
         <Blocks data={data} datas={datas} />

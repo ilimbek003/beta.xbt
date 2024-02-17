@@ -192,6 +192,34 @@ body {
   background-color: var(--green) !important;
 }
 
+.button {
+  outline: none;
+  border: none;
+  padding: 15px 35px;
+  background: var(--green);
+  border: 1px solid transparent;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+}
+
+.button:hover {
+  background-color: #4ac49d;
+  cursor: pointer;
+}
+
+.button.outline {
+  border: 1px solid var(--green);
+  background-color: transparent;
+}
+
+.button.outline:focus {
+  background-color: #4ac49d;
+}
+
 @media (max-width: 630px) {
   ::-webkit-scrollbar {
     width: 0;
@@ -326,5 +354,14 @@ body {
   .settings .capsula p {
     font-size: 14px !important;
     line-height: 1;
+  }
+
+  .contact_form {
+    padding-right: 0;
+    padding-bottom: 20px;
+  }
+  
+  .home-button-wrap {
+    flex-direction: column !important;
   }
 }

@@ -39,6 +39,10 @@
   width: 100%;
 }
 
+.contact_form {
+  padding-right: 40px;
+}
+
 @media (max-width: 800px) {
   .contacts .container {
     display: grid;

@@ -1,6 +1,6 @@
 import React from "react";
 import "./Contacts.css";
-import unsplash from "../../img/bg_register.svg";
+import unsplash from "../../img/1707295405.png";
 
 const Contacts = () => {
   return (
@@ -15,6 +15,15 @@ const Contacts = () => {
           <p>График работы службы поддержки и отдела подаж с 12:00 до 18:00 в будние дни (GMT+6)</p>
           <h2>Электронная почта</h2>
           <p><a href="mailto:kgblockchain312@gmail.com">kgblockchain312@gmail.com</a> - по поводу сотрудничества</p>
+          <h2>Реквизиты</h2>
+          <p className="pb-4">
+            Сервис предоставляется <b>ОсОО "Кейджи блокчейн солушенс"</b>
+            <br /><br />ИНН <b>01105202310063</b>
+            <br />г. Бишкек, микрорайон № 10, Дом 29/1.
+            <br />Лицензия <b>№46</b>  от <b>23</b> августа <b>2023</b> года
+            <br />выдана Государственной службой регулирования и надзора за финансовым рынком
+            <br />при Министерстве экономики и финансов <b>Кыргызской Республики</b>
+          </p>
         </div>
         <div>
           <img className="bg_login" src={unsplash} alt="" />

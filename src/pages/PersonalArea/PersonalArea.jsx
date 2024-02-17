@@ -33,7 +33,7 @@ const PersonalArea = ({ color, setColor, setIsAuthenticated }) => {
     personal && personal.profile && personal.profile.security["2fa"];
   const [account, setAccount] = useState(false);
   const [profile, setProfile] = useState(true);
-  console.log(profile);
+  // console.log(profile);
   useEffect(() => {
     document.title = "XBT - Покупка. Продажа. Обмен криптовалюты";
   }, []);
