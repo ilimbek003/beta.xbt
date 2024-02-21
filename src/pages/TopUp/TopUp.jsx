@@ -147,7 +147,7 @@ const TopUp = ({ color, currencies }) => {
     tempTextArea.select();
     document.execCommand("copy");
     document.body.removeChild(tempTextArea);
-    Alert("success", "успешно скопировано !");
+    Alert("success", "Успешно скопировано");
   };
 
   return (
@@ -159,7 +159,7 @@ const TopUp = ({ color, currencies }) => {
       ) : (
         <div className="container">
           <div className="top_up_header">
-            <h1> Пополнить баланс </h1>
+            <h1>Пополнить баланс</h1>
             <div className="menu_header">
               <button
                 style={{
@@ -279,9 +279,9 @@ const TopUp = ({ color, currencies }) => {
               <div className="modal">
                 <div onClick={() => setModal(false)} className="not"></div>
                 <div className="modal_container">
-                  <h1>{name.name} депозитный адрес</h1>
+                  <h1>{name.name} Депозитный адрес</h1>
                   <p className="text-center" style={{textAlign:"center"}}>
-                    Минимальная сумма ≈ 10 USDT.<br />
+                    Минимальная сумма ≈ 15 USDT.<br />
                     Если отправить криптовалюту на
                     неверный адрес (например, биткойн на адрес Bitcoin Cash),
                     криптовалюта будет потеряна
@@ -356,7 +356,7 @@ const TopUp = ({ color, currencies }) => {
                       value={valueForm}
                       onChange={(e) => setValueForm(e.target.value)}
                       type="number"
-                      placeholder="Введите"
+                      placeholder="Введите сумму"
                     />
                     <button
                       disabled={loadingForm ? false : true}
@@ -376,7 +376,7 @@ const TopUp = ({ color, currencies }) => {
                       }
                       className="btn"
                     >
-                      {loadingForm ? "пополнить баланс" : <Loading2 />}
+                      {loadingForm ? "Пополнить баланс" : <Loading2 />}
                     </button>
                   </form>
                 </div>

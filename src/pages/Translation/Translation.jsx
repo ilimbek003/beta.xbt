@@ -47,6 +47,7 @@ const Translation = ({ datas_tran, color, balanceTether }) => {
   const navigate = useNavigate();
   const [commissions, setCommissions] = useState([]);
   const [datasCurApp, setDatasCurApp] = useState([]);
+  const [getCurrencyDetail, setCurrencyDetail] = useState([]);
   const [modalShow, setModalShow] = useState(false);
   const [code, setCode] = useState("");
   const tran = datas_tran
@@ -55,6 +56,11 @@ const Translation = ({ datas_tran, color, balanceTether }) => {
     })
     .map((el) => el);
   const datasCur = Object.values(datasCurApp).map((data) => data);
+  const getDefaultNetwork = datasCur.filter((obj) => {
+    return obj.network.includes('TRC20');
+  })
+  .map((el) => el)
+
   function withdraw(cur) {
     setDataCar(cur);
   }
@@ -85,12 +91,29 @@ const Translation = ({ datas_tran, color, balanceTether }) => {
     }
   }, [local]);
 
+  useEffect(() => {
+    if (local) {
+      axios
+        .get(url + `/currencies`, { headers })
+        .then((response) => {
+          setCurrencyDetail(response.data.currencies.filter((obj) => {
+            return obj.currency.includes(currancy);
+          })
+          .map((el) => el));
+        })
+        .catch((error) => {
+          Alert("error", error.response.data.messages);
+          navigate("/dashboard/translation");
+        });
+    }
+  }, [local, currancy]);
+
   const withdrawFunc = async (e) => {
     e.preventDefault();
     setLoading(true);
     try {
       const newData = {
-        sum: summa,
+        sum: value2,
         currency: tran[0].currency,
         wallet: networkUse,
         network: dataCar.network ? dataCar.network : datasCur[0].network,
@@ -119,7 +142,7 @@ const Translation = ({ datas_tran, color, balanceTether }) => {
         )
         .then((response) => {
           setModal(false);
-          Alert("success", "успешно!");
+          Alert("success", "Успешно");
           if (response.data.response === true) {
             navigate("/dashboard/operations");
             setModalShow(false);
@@ -147,10 +170,8 @@ const Translation = ({ datas_tran, color, balanceTether }) => {
     }
   });
   const summa = value2 === "" ? "0" : value2 - commiss;
-  const balance = localStorage.getItem("balance");
   const balanse = () => {
-    const balance = localStorage.getItem("balance");
-    setValue2(balance);
+    setValue2((getCurrencyDetail[0].balance) ? getCurrencyDetail[0].balance : 0);
   };
   return (
     <div id="translation">
@@ -213,7 +234,7 @@ const Translation = ({ datas_tran, color, balanceTether }) => {
                     onClick={() => setSelect(!select)}
                     type="text"
                     value={
-                      dataCar.network ? dataCar.network : datasCur[0].network
+                      dataCar.network ? dataCar.network : (getDefaultNetwork[0]) ? getDefaultNetwork[0].network : datasCur[0].network
                     }
                     onChange={(e) => setValue1(e.target.value)}
                     placeholder="Выберите сеть вывода средств"
@@ -243,7 +264,7 @@ const Translation = ({ datas_tran, color, balanceTether }) => {
                 </div>
                 <div className="flex-balanse">
                   <label>Сумма отправления</label>
-                  <p className="balans-crypty">{balance +' '+ currancy}</p>
+                  <p className="balans-crypty">{ (getCurrencyDetail[0]) && getCurrencyDetail[0].balance +' '+ getCurrencyDetail[0].currency }</p>
                 </div>
                 <div className="position-lation">
                   <input
@@ -302,7 +323,7 @@ const Translation = ({ datas_tran, color, balanceTether }) => {
                       className="not_confirm"
                     ></div>
                     <div className="save_form">
-                      <h1>Подтвердите действия</h1>
+                      <h1>Подтвердите действие</h1>
                       <div className="box_form">
                         <p>Сумма к списанию</p>
                         <p className="form">
@@ -326,7 +347,7 @@ const Translation = ({ datas_tran, color, balanceTether }) => {
                         onClick={() => FuncConfirm(datas.confirm.id)}
                         className="btn_confirm"
                       >
-                        {loading2 ? <Loading2 /> : "Потвердить"}
+                        {loading2 ? <Loading2 /> : "Подтвердить"}
                       </button>
                     </div>
                   </div>
@@ -386,7 +407,7 @@ const Translation = ({ datas_tran, color, balanceTether }) => {
                 onClick={() => FuncConfirm(datas.confirm.id, code)}
                 className="btn_confirm"
               >
-                {loading2 ? <Loading2 /> : "Потвердить"}
+                {loading2 ? <Loading2 /> : "Подтвердить"}
               </button>
             </form>
           </div>

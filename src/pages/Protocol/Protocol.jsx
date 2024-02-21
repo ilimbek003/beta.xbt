@@ -206,7 +206,7 @@ const Protocol = ({ currencies, balanceTether }) => {
                         onClick={() => FuncConfirm("sell", datas.confirm.id)}
                         className="btn_confirm"
                       >
-                        {loading2 ? <Loading2 /> : "Потвердить"}
+                        {loading2 ? <Loading2 /> : "Подтвердить"}
                       </button>
                     </div>
                   </div>
