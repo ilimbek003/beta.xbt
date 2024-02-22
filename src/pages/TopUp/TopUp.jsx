@@ -61,8 +61,18 @@ const TopUp = ({ color, currencies }) => {
   }, [local]);
 
   useEffect(() => {
-    Func(cate);
-  }, [cate]);
+    let search = window.location.search
+    let params = new URLSearchParams(search)
+    if (params.get('tab') === 'other') {
+      setOne(false)
+      setTwo(false)
+      setThree(false)
+      setFour(true)
+      Func('cash')
+    } else {
+      Func(cate)
+    }
+  }, [cate])
 
   function Func(category) {
     if (local) {
@@ -254,10 +264,10 @@ const TopUp = ({ color, currencies }) => {
                       Name(el) || el.category == "cryptocurrency"
                         ? FuncMothed(el.category, el.slug)
                         : el.category == "fiat"
-                        ? setModalForm(true) || Name(el)
-                        : el.category == "terminals" || el.category == "cash"
-                        ? funcText(el) || setModalText(true)
-                        : alert("error")
+                          ? setModalForm(true) || Name(el)
+                          : el.category == "terminals" || el.category == "cash"
+                            ? funcText(el) || setModalText(true)
+                            : alert("error")
                     }
                     key={index}
                     className="box"
@@ -280,14 +290,14 @@ const TopUp = ({ color, currencies }) => {
                 <div onClick={() => setModal(false)} className="not"></div>
                 <div className="modal_container">
                   <h1>{name.name} Депозитный адрес</h1>
-                  <p className="text-center" style={{textAlign:"center"}}>
+                  <p className="text-center" style={{ textAlign: "center" }}>
                     Минимальная сумма ≈ 15 USDT.<br />
                     Если отправить криптовалюту на
                     неверный адрес (например, биткойн на адрес Bitcoin Cash),
                     криптовалюта будет потеряна
                   </p>
-                  <img src={depozit.qrcode_url} alt="" className="deposit-qr-image"/>
-                  <p className="address" style={{textAlign:"center"}}>
+                  <img src={depozit.qrcode_url} alt="" className="deposit-qr-image" />
+                  <p className="address" style={{ textAlign: "center" }}>
                     {name.name == "Tether" ? name.name + " TRC20" : name.name}{" "}
                     Адрес
                   </p>
@@ -365,14 +375,14 @@ const TopUp = ({ color, currencies }) => {
                           valueForm == ""
                             ? "#000"
                             : color
-                            ? "var(--green)"
-                            : "var(--orange)",
+                              ? "var(--green)"
+                              : "var(--orange)",
                       }}
                       onClick={() =>
                         valueForm == ""
                           ? setLoadingForm(true)
                           : FuncForm(name.category, name.slug, valueForm) ||
-                            setLoadingForm(false)
+                          setLoadingForm(false)
                       }
                       className="btn"
                     >
@@ -387,7 +397,7 @@ const TopUp = ({ color, currencies }) => {
             <div className="modal">
               <div onClick={() => setModalText(false)} className="not"></div>
               <div className="modal_text">
-                <h1>Пополнить через {text.name}</h1>
+                <h1>{text.name}</h1>
                 {React.createElement("p", {
                   dangerouslySetInnerHTML: {
                     __html: text.info.description ? text.info.description : "",

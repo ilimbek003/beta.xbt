@@ -3,6 +3,8 @@ import "./Withdraw.css";
 import { BiSearch } from "react-icons/bi";
 import Loading from "../../components/IU/loading/loading";
 import { useNavigate } from "react-router-dom";
+import cashIcon from '../../img/money.svg'
+import bankIcon from '../../img/bank.svg'
 
 const Withdraw = ({
   datas,
@@ -32,6 +34,20 @@ const Withdraw = ({
             </div>
           </div>
           <div className="wrapper">
+            <div onClick={() => navigate(`/dashboard/top-up?tab=other`)} className="box">
+              <img src={cashIcon} alt="Cash XBT" />
+              <div>
+                <h1>Наличные</h1>
+                <p>USD/KGS</p>
+              </div>
+            </div>
+            <div onClick={() => navigate(`/dashboard/top-up?tab=other`)} className="box">
+              <img src={bankIcon} alt="Bank XBT" />
+              <div>
+                <h1>Банк</h1>
+                <p>USD/KGS</p>
+              </div>
+            </div>
             {datas
               .filter((obj) => {
                 const fullName = obj.currency.toLowerCase();
@@ -40,21 +56,6 @@ const Withdraw = ({
               .map((el, index) =>
                 el.can_withdraw == true ? (
                   <div
-                    // onClick={() =>
-                    //   verification?.value == 1
-                    //     ? navigate("/dashboard/settings") ||
-                    //       setAccount(!account)
-                    //     : null || verification?.value == 2
-                    //     ? navigate(`/dashboard/translation/${el.currency}`) ||
-                    //       localStorage.setItem("balance", el.balance)
-                    //     : null || verification?.value == 3
-                    //     ? navigate("/dashboard/settings") ||
-                    //       setAccount(!account) ||
-                    //       setProfile(false)
-                    //     : null || verification?.value == 4
-                    //     ? navigate("/dashboard/settings")
-                    //     : null || setAccount(!account) || setProfile(false)
-                    // }
                     onClick={() =>
                       navigate(`/dashboard/translation/${el.currency}`) ||
                       localStorage.setItem("balance", el.balance)

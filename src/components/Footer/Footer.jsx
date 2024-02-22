@@ -68,12 +68,12 @@ const Footer = ({color}) => {
                     <div className="footer_new_all_blocks">
                         <h6>Политика</h6>
                         <h4>
-              <NavLink to="/privacy-policy" target="_blank1">
+              <NavLink to="/privacy-policy">
                 Политика конфиденциальности
               </NavLink>
             </h4>
             <h4>
-              <NavLink to="/terms" target="_blank2">
+              <NavLink to="/terms">
                 Условия использования
               </NavLink>
             </h4>

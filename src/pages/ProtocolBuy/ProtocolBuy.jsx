@@ -41,6 +41,23 @@ const ProtocolBuy = ({ balanceTether, currencies }) => {
   useEffect(() => {
     if (local) {
       axios
+        .get(url + `/profile/personal`, { headers })
+        .then((response) => {
+          if (response.data.profile.verification.value !== '2') {
+            Alert("error", 'Для осуществления данной операции, необходимо пройти проверку KYC');
+            navigate("/dashboard/settings?tab=KYC");
+          }
+        })
+        .catch((error) => {
+          Alert("error", error.response.data.messages);
+          navigate("/dashboard/buy-cryptocurrency");
+        });
+    }
+  }, [local]);
+
+  useEffect(() => {
+    if (local) {
+      axios
         .get(url + `/buy/parameters/${id}`, { headers })
         .then((response) => {
           setData(response.data.parameters);
@@ -88,7 +105,7 @@ const ProtocolBuy = ({ balanceTether, currencies }) => {
         .then((response) => {
           setLoading2(true);
           setModal(false);
-          Alert("success", "успешно!");
+          Alert("success", "Успешно");
           if (response.data.response == true) {
             navigate("/dashboard/operations");
           }

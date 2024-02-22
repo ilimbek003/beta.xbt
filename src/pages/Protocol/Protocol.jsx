@@ -29,8 +29,8 @@ const Protocol = ({ currencies, balanceTether }) => {
   const sum2 =
     summa2 > 0
       ? summa2.toFixed(
-          dataCurrancy[0].decimal == 0 ? 2 : dataCurrancy[0].decimal
-        )
+        dataCurrancy[0].decimal == 0 ? 2 : dataCurrancy[0].decimal
+      )
       : 0;
 
   useEffect(() => {
@@ -47,7 +47,24 @@ const Protocol = ({ currencies, balanceTether }) => {
   useEffect(() => {
     if (local) {
       axios
-        .get(url + `/buy/parameters/${name}`, { headers })
+        .get(url + `/profile/personal`, { headers })
+        .then((response) => {
+          if (response.data.profile.verification.value !== '2') {
+            Alert("error", 'Для осуществления данной операции, необходимо пройти проверку KYC');
+            navigate("/dashboard/settings?tab=KYC");
+          }
+        })
+        .catch((error) => {
+          Alert("error", error.response.data.messages);
+          navigate("/dashboard/sell-cryptocurrency");
+        });
+    }
+  }, [local]);
+
+  useEffect(() => {
+    if (local) {
+      axios
+        .get(url + `/sell/parameters/${name}`, { headers })
         .then((response) => {
           setData(response.data.parameters);
         })
@@ -94,14 +111,13 @@ const Protocol = ({ currencies, balanceTether }) => {
         .then((response) => {
           setLoading2(true);
           setModal(false);
-          Alert("success", "успешно!");
+          Alert("success", "Успешно");
           if (response.data.response == true) {
             navigate("/dashboard/operations");
           }
           balanceTether();
         })
         .catch((error) => {
-          alert("че ошибка болуп атат , бирок иштейт", error);
           setLoading2(false);
         });
     }

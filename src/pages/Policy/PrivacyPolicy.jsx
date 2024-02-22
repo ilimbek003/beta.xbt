@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { url } from "../../api";
 import "./PrivacyAll.css";
 
 const PrivacyPolicy = () => {
+  const [content, setContent] = useState('')
+
+  useEffect(() => {
+    axios
+      .get(url + `/pages/privacy-policy`)
+      .then((response) => {
+        if(response.data.detail.content) {
+          setContent(response.data.detail.content)
+        }
+      })
+  }, []);
+  
   return (
     <div className="container">
-      <div className="privacy-wrap">
-        <h1 className="text-v1 text-center">Политика конфиденциальности</h1>
+      <div className="privacy-wrap" dangerouslySetInnerHTML={{__html: (content) ? content : ''}}>
+        {/* <h1 className="text-v1 text-center">Политика конфиденциальности</h1>
         <p className="text-v4 py-4">
           Правила оператора обмена виртуальных активов
         </p>
@@ -219,7 +233,7 @@ const PrivacyPolicy = () => {
           от 23 августа 2023 года выдана Государственной службой регулирования и
           надзора за финансовым рынком при Министерстве экономики и финансов
           Кыргызской Республики
-        </p>
+        </p> */}
       </div>
     </div>
   );

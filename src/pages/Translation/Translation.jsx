@@ -94,6 +94,23 @@ const Translation = ({ datas_tran, color, balanceTether }) => {
   useEffect(() => {
     if (local) {
       axios
+        .get(url + `/profile/personal`, { headers })
+        .then((response) => {
+          if(response.data.profile.verification.value !== '2') {
+            Alert("error", 'Для осуществления данной операции, необходимо пройти проверку KYC');
+            navigate("/dashboard/settings?tab=KYC");
+          }
+        })
+        .catch((error) => {
+          Alert("error", error.response.data.messages);
+          navigate("/dashboard/translation");
+        });
+    }
+  }, [local]);
+
+  useEffect(() => {
+    if (local) {
+      axios
         .get(url + `/currencies`, { headers })
         .then((response) => {
           setCurrencyDetail(response.data.currencies.filter((obj) => {
@@ -116,7 +133,7 @@ const Translation = ({ datas_tran, color, balanceTether }) => {
         sum: value2,
         currency: tran[0].currency,
         wallet: networkUse,
-        network: dataCar.network ? dataCar.network : datasCur[0].network,
+        network: dataCar.network ? dataCar.network : (getDefaultNetwork[0]) ? getDefaultNetwork[0].network : datasCur[0].network
       };
       const response = await axios.post(url + "/cashout/create", newData, {
         headers,

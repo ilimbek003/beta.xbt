@@ -116,6 +116,7 @@
   font-size: 23px;
   font-weight: 500;
   text-align: center;
+  line-height: 1;
 }
 .top_up .modal p {
   margin-top: 15px;
@@ -186,6 +187,13 @@
   padding: 30px 20px;
   border-radius: 20px;
   background: #262a32;
+}
+.top_up .modal_text a {
+  color: #4ac49e;
+}
+.top_up .modal_text img {
+  max-width: 100% !important;
+  max-height: 100% !important;
 }
 .top_up .modal_text p {
   text-align: start;

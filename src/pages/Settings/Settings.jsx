@@ -37,6 +37,7 @@ const Settings = ({
   const [modal2fa, setModal2fa] = useState(false);
   const [modal2f, setModal2f] = useState(false);
   const [data2fa, setData2fa] = useState(null);
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
@@ -153,6 +154,21 @@ const Settings = ({
       setData2fa("Ошибка при выполнении запроса");
     }
   };
+
+  useEffect(() => {
+    let search = window.location.search
+    let params = new URLSearchParams(search)
+    if(params.get('tab') === 'KYC') {
+      setProfile(false)
+      setAccount(true)
+      setSafety(false)
+    }
+    if(params.get('tab') === 'security') {
+      setProfile(false)
+      setAccount(false)
+      setSafety(true)
+    }
+  }, []);
 
   return (
     <div className="settings">
