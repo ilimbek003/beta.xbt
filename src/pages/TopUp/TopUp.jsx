@@ -358,37 +358,50 @@ const TopUp = ({ color, currencies }) => {
                 </div>
               ) : (
                 <div className="modal_form">
-                  <h1>Пополнить через</h1>
-                  <h1>"{name.name}"</h1>
-                  <p> Комиссия {name.commission} %</p>
-                  <form>
-                    <input
-                      value={valueForm}
-                      onChange={(e) => setValueForm(e.target.value)}
-                      type="number"
-                      placeholder="Введите сумму"
-                    />
-                    <button
-                      disabled={loadingForm ? false : true}
-                      style={{
-                        background:
-                          valueForm == ""
-                            ? "#000"
-                            : color
-                              ? "var(--green)"
-                              : "var(--orange)",
-                      }}
-                      onClick={() =>
-                        valueForm == ""
-                          ? setLoadingForm(true)
-                          : FuncForm(name.category, name.slug, valueForm) ||
-                          setLoadingForm(false)
-                      }
-                      className="btn"
-                    >
-                      {loadingForm ? "Пополнить баланс" : <Loading2 />}
-                    </button>
-                  </form>
+                  <h1>{name.name}</h1>
+                  {name.info && (
+                    <div>
+                      {React.createElement("p", {
+                        dangerouslySetInnerHTML: {
+                          __html: name.info.description ? name.info.description : "",
+                        },
+                      })}
+                      <button onClick={() => setModalForm(false)} className="btn">Понятно</button>
+                    </div>
+                  )}
+                  {!name.info && (
+                    <div>
+                      <p>Комиссия {name.commission}%</p>
+                      <form>
+                        <input
+                          value={valueForm}
+                          onChange={(e) => setValueForm(e.target.value)}
+                          type="number"
+                          placeholder="Введите сумму"
+                        />
+                        <button
+                          disabled={loadingForm ? false : true}
+                          style={{
+                            background:
+                              valueForm == ""
+                                ? "#000"
+                                : color
+                                  ? "var(--green)"
+                                  : "var(--orange)",
+                          }}
+                          onClick={() =>
+                            valueForm == ""
+                              ? setLoadingForm(true)
+                              : FuncForm(name.category, name.slug, valueForm) ||
+                              setLoadingForm(false)
+                          }
+                          className="btn"
+                        >
+                          {loadingForm ? "Пополнить баланс" : <Loading2 />}
+                        </button>
+                      </form>
+                    </div>
+                  )}
                 </div>
               )}
             </div>
@@ -410,8 +423,9 @@ const TopUp = ({ color, currencies }) => {
             </div>
           )}
         </div>
-      )}
-    </div>
+      )
+      }
+    </div >
   );
 };
 

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import axios from "axios";
 import { Alert } from "../../components/IU/alert/alert";
-import frogme from "../../img/Frame.svg";
 import Loading2 from "../../components/IU/loading2/loading2";
 import { url } from "../../api";
 import Loading from "../../components/IU/loading/loading";
@@ -117,27 +116,24 @@ const ProtocolBuy = ({ balanceTether, currencies }) => {
         });
     }
   }
+
   return (
     <div id="protocol">
       {dataCurrancy[0] ? (
         <div className="container">
           <h1>Купить {dataCurrancy[0].name} По курсу</h1>
-          <h3>
-            1.00 {dataCurrancy[0].name} = {dataCurrancy[0].rate} USDT
-          </h3>
+          <h3>1.00 {dataCurrancy[0].name} = {dataCurrancy[0].rate} USDT</h3>
           <div className="protocol">
             <div className="protocol_ll">
               <div className="big">
                 <div className="all_big">
                   <div className="big_ll">
-                    <img src={frogme} alt="" />
                     <div>
                       <h6>Срок исполнения</h6>
                       <h2>Моментально</h2>
                     </div>
                   </div>
                   <div className="big_ll">
-                    <img src={frogme} alt="" />
                     <div>
                       <h6>Максимальная сумма</h6>
                       <h2>{data.max_qty}</h2>
@@ -146,14 +142,12 @@ const ProtocolBuy = ({ balanceTether, currencies }) => {
                 </div>
                 <div className="all_big mar">
                   <div className="big_ll">
-                    <img src={frogme} alt="" />
                     <div>
                       <h6>Минимальная сумма</h6>
                       <h2>{data.min_qty}</h2>
                     </div>
                   </div>
                   <div className="big_ll d_flex">
-                    <img src={frogme} alt="" />
                     <div>
                       <h6>Комиссия</h6>
                       <h2>{data.commission}%</h2>
@@ -165,12 +159,17 @@ const ProtocolBuy = ({ balanceTether, currencies }) => {
                 <label>
                   Баланс: {balanceFilter ? balanceFilter : <Loading2 />} USDT
                 </label>
-                <input
-                  value={value1}
-                  onChange={(e) => setValue1(e.target.value)}
-                  type="number"
-                  placeholder="USDT Tether"
-                />
+                <div className="position-lation">
+                  <input
+                    defaultValue={value1}
+                    onChange={(e) => setValue1(e.target.value)}
+                    type="number"
+                    placeholder="USDT Tether"
+                  />
+                  <div className="max-balanse" onClick={() => setValue1(balanceFilter)}>
+                    <p className="balans-crypty">MAX</p>
+                  </div>
+                </div>
                 <label>
                   Баланс: {dataCurrancy[0].balance} {dataCurrancy[0].currency}
                 </label>

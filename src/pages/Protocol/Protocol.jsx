@@ -136,14 +136,12 @@ const Protocol = ({ currencies, balanceTether }) => {
               <div className="big">
                 <div className="all_big">
                   <div className="big_ll">
-                    <img src={frogme} alt="" />
                     <div>
                       <h6>Срок исполнения</h6>
                       <h2>Моментально</h2>
                     </div>
                   </div>
                   <div className="big_ll">
-                    <img src={frogme} alt="" />
                     <div>
                       <h6>Максимальная сумма</h6>
                       <h2>{data.max_qty}</h2>
@@ -152,14 +150,12 @@ const Protocol = ({ currencies, balanceTether }) => {
                 </div>
                 <div className="all_big mar">
                   <div className="big_ll">
-                    <img src={frogme} alt="" />
                     <div>
                       <h6>Минимальная сумма</h6>
                       <h2>{data.min_qty}</h2>
                     </div>
                   </div>
                   <div className="big_ll d_flex">
-                    <img src={frogme} alt="" />
                     <div>
                       <h6>Комиссия</h6>
                       <h2>{data.commission}%</h2>
@@ -171,12 +167,17 @@ const Protocol = ({ currencies, balanceTether }) => {
                 <label>
                   Баланс: {dataCurrancy[0].balance} {dataCurrancy[0].currency}
                 </label>
-                <input
-                  value={value2}
-                  onChange={(e) => setValue2(e.target.value)}
-                  type="number"
-                  placeholder={data.name}
-                />
+                <div className="position-lation">
+                  <input
+                    defaultValue={value2}
+                    onChange={(e) => setValue2(e.target.value)}
+                    type="number"
+                    placeholder={data.name}
+                  />
+                  <div className="max-balanse" onClick={() => setValue2(dataCurrancy[0].balance)}>
+                    <p className="balans-crypty">MAX</p>
+                  </div>
+                </div>
                 <label>
                   Баланс: {balanceFilter ? balanceFilter : <Loading2 />} USDT
                 </label>

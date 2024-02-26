@@ -1,7 +1,8 @@
 .top_up {
   width: 100%;
-  min-height: 400px;
+  min-height: 70vh;
 }
+
 .top_up .container {
   margin: 0 auto;
   max-width: 1140px;
@@ -9,6 +10,7 @@
   height: 100%;
   padding-bottom: 100px;
 }
+
 .top_up .container .top_up_header {
   width: 100%;
   min-height: 40px;
@@ -17,14 +19,17 @@
   flex-wrap: wrap;
   margin-bottom: 30px;
 }
+
 .top_up .container .top_up_header h1 {
   color: var(--white, #fff);
   font-size: 23px;
   font-weight: 600;
 }
+
 .top_up .top_up_header .menu_header {
   display: flex;
 }
+
 .top_up .top_up_header .menu_header .nav {
   color: var(--white, #fff);
   font-size: 16px;
@@ -35,12 +40,14 @@
   outline: none;
   border: none;
 }
+
 .top_up .wrapper {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 25px;
 }
+
 .top_up .wrapper .box {
   height: 90px;
   padding: 10px 20px;
@@ -51,24 +58,29 @@
   cursor: pointer;
   transition: 0.1s ease-in-out;
 }
+
 .top_up .wrapper .box:hover {
   background: #4d535e;
 }
+
 .top_up .wrapper .box img {
   width: 50px;
   height: 50px;
   margin-right: 10px;
 }
+
 .top_up .wrapper .box h1 {
   color: #fff;
   font-size: 18px;
   font-weight: 600;
 }
+
 .top_up .wrapper .box p {
   color: #9b9b9b;
   font-size: 16px;
   font-weight: 300;
 }
+
 .top_up .loading_div {
   width: 100%;
   height: 600px;
@@ -76,6 +88,7 @@
   align-items: center;
   justify-content: center;
 }
+
 .top_up .modal {
   top: 0;
   left: 0;
@@ -93,24 +106,28 @@
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
 }
+
 .top_up .modal .not {
   width: 100%;
   height: 100vh;
   position: relative;
 }
+
 .top_up .modal .modal_container {
   position: absolute;
   max-width: 500px;
   width: 80%;
   min-height: 200px;
-  padding: 30px 20px;
+  padding: 20px;
   border-radius: 20px;
   background: #262a32;
 }
+
 .top_up .modal h1 {
   color: var(--white, #fff);
   font-size: 23px;
@@ -118,18 +135,25 @@
   text-align: center;
   line-height: 1;
 }
+
 .top_up .modal p {
   margin-top: 15px;
   color: var(--white, #fff);
   font-size: 16px;
   font-weight: 300;
 }
+
+.top_up .modal a {
+  color: #4ac49e;
+}
+
 .top_up .modal img {
   margin: 0 auto;
   display: flex;
   margin-top: 15px;
   width: 200px;
 }
+
 .top_up .modal .address {
   display: block;
   margin-top: 20px;
@@ -139,6 +163,7 @@
   line-height: 1;
   margin-bottom: 0;
 }
+
 .top_up .modal input {
   margin-top: 10px;
   width: 100%;
@@ -151,8 +176,9 @@
   font-size: 16px;
   font-weight: 500;
 }
+
 .top_up .modal button {
-  margin-top: 15px;
+  margin-top: 20px;
   width: 100%;
   outline: none;
   cursor: pointer;
@@ -164,21 +190,25 @@
   font-size: 16px;
   font-weight: 600;
 }
+
 .top_up .modal button:hover {
   opacity: 0.8;
 }
+
 .top_up .modal_form {
   position: absolute;
   max-width: 500px;
   width: 80%;
   min-height: 200px;
-  padding: 30px 20px;
+  padding: 20px;
   border-radius: 20px;
   background: #262a32;
 }
+
 .top_up .modal_form input {
   color: #fff;
 }
+
 .top_up .modal_text {
   position: absolute;
   max-width: 500px;
@@ -188,16 +218,20 @@
   border-radius: 20px;
   background: #262a32;
 }
+
 .top_up .modal_text a {
   color: #4ac49e;
 }
+
 .top_up .modal_text img {
   max-width: 100% !important;
   max-height: 100% !important;
 }
+
 .top_up .modal_text p {
   text-align: start;
 }
+
 .top_up .box_form {
   display: flex;
   align-items: center;
@@ -207,13 +241,16 @@
   background: #1d2026;
   margin-top: 6px;
 }
+
 .top_up .box_form p {
   margin: 0;
 }
+
 .top_up .box_form .form {
   text-align: end;
   font-weight: 500;
 }
+
 .top_up .save_form {
   margin-top: 25px;
 }
@@ -227,27 +264,34 @@
     margin: 20px 0;
     overflow-y: hidden;
   }
+
   .top_up .menu_header::-webkit-scrollbar {
     width: 0;
     background: none;
   }
+
   .top_up .menu_header::-webkit-scrollbar-thumb {
     border-radius: none;
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     background: none;
   }
+
   .top_up .modal .modal_container h1 {
     font-size: 18px;
   }
+
   .top_up .modal .modal_container p {
     font-size: 12px;
   }
+
   .top_up .modal .modal_container img {
     width: 150px;
   }
+
   .top_up .modal input {
     font-size: 14px;
   }
+
   .top_up .modal button {
     padding: 10px;
   }

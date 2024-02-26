@@ -285,7 +285,7 @@ const Translation = ({ datas_tran, color, balanceTether }) => {
                 </div>
                 <div className="position-lation">
                   <input
-                    value={value2}
+                    defaultValue={value2}
                     onChange={(e) => setValue2(e.target.value)}
                     type="text"
                     placeholder="Сумма отправления"
@@ -306,12 +306,12 @@ const Translation = ({ datas_tran, color, balanceTether }) => {
                 <div className="position-lation">
                   <input
                     id="crypto-address"
-                    value={networkUse}
+                    defaultValue={networkUse}
                     onChange={(e) => setNetworkUse(e.target.value)}
                     type="text"
                     placeholder={`Введите номер ${
-                      dataCar.network ? dataCar.network : datasCur[0].network
-                    } кошелька *`}
+                      dataCar.network ? dataCar.network : (getDefaultNetwork[0]) ? getDefaultNetwork[0].network : datasCur[0].network
+                    } кошелька`}
                   />
                   <div className="max-balanse" onClick={async () => {
                     const text = await navigator.clipboard.readText()
@@ -343,13 +343,11 @@ const Translation = ({ datas_tran, color, balanceTether }) => {
                       <h1>Подтвердите действие</h1>
                       <div className="box_form">
                         <p>Сумма к списанию</p>
-                        <p className="form">
-                          {parseFloat(value2).toFixed(tran.decimal)}
-                        </p>
+                        <p className="form">{datas.confirm.amount}</p>
                       </div>
                       <div className="box_form">
                         <p>Сумма к зачислению</p>
-                        <p className="form">{datas.confirm.amount}</p>
+                        <p className="form">{summa}</p>
                       </div>
                       <div className="box_form">
                         <p>Комиссия сети</p>

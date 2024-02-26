@@ -2,6 +2,7 @@
   width: 100%;
   min-height: 500px;
 }
+
 .withdraw .container {
   margin: 0 auto;
   max-width: 1140px;
@@ -9,12 +10,14 @@
   height: 100%;
   padding-bottom: 100px;
 }
+
 .withdraw .holder {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
 }
+
 .withdraw .holder h1 {
   color: #ffffff;
   font-size: 23px;
@@ -22,12 +25,14 @@
   font-weight: 600;
   line-height: normal;
 }
+
 .withdraw .search_i {
   color: white;
   font-size: 20px;
   position: absolute;
   margin: 14px;
 }
+
 .withdraw .holder input {
   font-size: 16px;
   font-style: normal;
@@ -43,6 +48,7 @@
   padding: 0 0 0 48px;
   color: white;
 }
+
 .withdraw .wrapper {
   margin-top: 50px;
   width: 100%;
@@ -50,6 +56,15 @@
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 25px;
 }
+
+.withdraw .wrapper.active {
+  display: grid;
+}
+
+.withdraw .wrapper.hide {
+  display: none;
+}
+
 .withdraw .wrapper .box {
   height: 90px;
   padding: 10px 20px;
@@ -60,24 +75,29 @@
   cursor: pointer;
   transition: 0.1s ease-in-out;
 }
+
 .withdraw .wrapper .box:hover {
   background: #4d535e;
 }
+
 .withdraw .wrapper .box img {
   width: 50px;
   height: 50px;
   margin-right: 10px;
 }
+
 .withdraw .wrapper .box h1 {
   color: #fff;
   font-size: 18px;
   font-weight: 600;
 }
+
 .withdraw .wrapper .box p {
   color: #9b9b9b;
   font-size: 16px;
   font-weight: 300;
 }
+
 .withdraw .loading_div {
   width: 100%;
   height: 600px;
@@ -90,9 +110,11 @@
   .withdraw .holder h1 {
     margin-bottom: 20px;
   }
+
   .withdraw .holder input {
     width: 100%;
   }
+
   .withdraw .width {
     width: 100%;
   }

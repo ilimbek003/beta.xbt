@@ -240,7 +240,7 @@
   outline: none;
   border: none;
   cursor: pointer;
-  border-radius: 12px;
+  border-radius: 4px;
 }
 #translation .btn:hover {
   opacity: 0.8;
@@ -307,15 +307,15 @@
 #translation .btn_confirm {
   margin-top: 20px;
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   outline: none;
   border: none;
   cursor: pointer;
-  border-radius: 15px;
+  border-radius: 4px;
   background: var(--green);
   color: var(--white, #fff);
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 500;
 }
 #translation .loading_div {
   width: 100%;

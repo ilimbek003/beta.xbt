@@ -220,6 +220,98 @@ body {
   background-color: #4ac49d;
 }
 
+.header-nav {
+  display: flex;
+}
+
+.header-nav .nav {
+  background-color: transparent;
+  color: var(--white, #fff);
+  font-size: 16px;
+  font-weight: 400;
+  padding: 8px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+.header-nav .nav.active {
+  background-color: var(--green);
+}
+
+.modal-window {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgb(0, 0, 0, .7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: name 0.5s;
+}
+
+.modal-window .modal-overlay {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+}
+
+.modal-window h1 {
+  color: var(--white, #fff);
+  font-size: 23px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1;
+}
+
+.modal-window .modal-text {
+  position: absolute;
+  max-width: 500px;
+  width: 80%;
+  min-height: 100px;
+  padding: 20px;
+  border-radius: 20px;
+  background: #262a32;
+}
+
+.modal-window .modal-text a {
+  color: #4ac49e;
+}
+
+.modal-window .modal-text img {
+  max-width: 100% !important;
+  max-height: 100% !important;
+}
+
+.modal-window .modal-text p {
+  margin-top: 15px;
+  color: var(--white, #fff);
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.1;
+}
+
+.modal-window button {
+  margin-top: 20px;
+  width: 100%;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background: #4ac49e;
+  padding: 15px;
+  color: var(--white, #fff);
+  font-size: 16px;
+  font-weight: 600;
+}
+
 @media (max-width: 630px) {
   ::-webkit-scrollbar {
     width: 0;
@@ -313,7 +405,8 @@ body {
     padding: 10px 0 !important;
   }
 
-  .operations .wrapper .save_oper, .operations .wrapper .box {
+  .operations .wrapper .save_oper,
+  .operations .wrapper .box {
     padding: 15px 0 !important;
   }
 
@@ -360,7 +453,7 @@ body {
     padding-right: 0;
     padding-bottom: 20px;
   }
-  
+
   .home-button-wrap {
     flex-direction: column !important;
   }
