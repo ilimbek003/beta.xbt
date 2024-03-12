@@ -259,6 +259,10 @@
   border-radius: 20px;
 }
 
+.margin-top-20 {
+  margin-top: 30px !important;
+}
+
 @media (max-width: 750px) {
   .top_up .menu_header {
     margin: 20px 0;

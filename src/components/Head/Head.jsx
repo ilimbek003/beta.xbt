@@ -95,7 +95,7 @@ const Head = ({
             </div>
             <div>
               <h4 className="balance-text">Ваш баланс</h4>
-              <h3>${currencies.total_balance ? currencies.total_balance : <Loading2 />}</h3>
+              <h3>{currencies.total_balance ? currencies.total_balance : <Loading2 />} USDT</h3>
             </div>
           </div>
           <div className="header-logo" onClick={() => setColor(!color) || navigate("/")}>

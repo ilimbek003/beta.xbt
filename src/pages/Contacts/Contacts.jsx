@@ -8,11 +8,12 @@ const Contacts = () => {
       <div className="container">
         <div className="contact_form">
           <h1>Контакты</h1>
-          <h2>Номер:</h2>
-          <p><a href="tel:+996777225555">+996 (777) 22-55-55</a></p>
-          <h2>Рабочее время</h2>
-          <p>График работы сайта круглосуточный.</p>
-          <p>График работы службы поддержки и отдела подаж с 12:00 до 18:00 в будние дни (GMT+6)</p>
+          <p><b className="text-danger">Не проводим сделок онлайн в мессенджерах. Только на сайте или в офисе в Бишкеке</b></p>
+          <h2>Контакты</h2>
+          <p><a href="tel:+996777225555" target="_blank">+996 (777) 22-55-55</a></p>
+          <p><a href="https://wa.me/+996777225555" target="_blank">+996 (777) 22-55-55 (Whatsapp)</a></p>
+          <p>Telegram <a href="https://t.me/xbtkg" target="_blank">@xbtkg</a></p>
+          <p>Форум <a href="https://diesel.elcat.kg/index.php?showtopic=293198009" target="_blank">Diesel</a></p>
           <h2>Электронная почта</h2>
           <p><a href="mailto:kgblockchain312@gmail.com">kgblockchain312@gmail.com</a> - по поводу сотрудничества</p>
           <h2>Реквизиты</h2>

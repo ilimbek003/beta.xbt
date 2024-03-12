@@ -196,9 +196,9 @@ const Cabinet = ({ color, datas, loading, datas_personal, datas_log }) => {
                     <p>Покупка</p>
                   </div>
                   <div className="replenishment info">
-                    <p>${datas_personal[0].limits.refill}</p>
-                    <p>${datas_personal[0].limits.sell}</p>
-                    <p>${datas_personal[0].limits.buy}</p>
+                    <p>{datas_personal[0].limits.refill} <small>USDT</small></p>
+                    <p>{datas_personal[0].limits.sell} <small>USDT</small></p>
+                    <p>{datas_personal[0].limits.buy} <small>USDT</small></p>
                   </div>
                 </div>
               ) : (

@@ -31,9 +31,9 @@
   font-weight: 300;
 }
 .contacts p a {
-  color: inherit;
+  color: #4ac49e;
   text-decoration: none;
-  border-bottom: 1px solid #cdcdcd;
+  border-bottom: 1px solid #4ac49e;
 }
 .contacts img {
   width: 100%;
